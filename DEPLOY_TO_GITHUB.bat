@@ -3,8 +3,9 @@ setlocal enabledelayedexpansion
 TITLE GitHub & Deployment Sub-Agent
 
 echo ===================================================
-echo   GitHub & Deployment Sub-Agent - HSK4 Master
+echo   GitHub and Deployment Sub-Agent - HSK4 Master
 echo ===================================================
+
 
 :: Ensure Git is in PATH
 set "PATH=%PATH%;C:\Users\HP\AppData\Local\GitHubDesktop\app-3.6.2\resources\app\git\cmd"
