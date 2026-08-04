@@ -44,30 +44,30 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        {/* Navigation Tabs Bar */}
+        <div className="navbar-scroll-tabs">
           <button
             onClick={() => setCurrentTab('shadowing')}
             className={currentTab === 'shadowing' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
-            <Mic size={18} />
+            <Sparkles size={18} />
             <span>Luyện Nghe & AI Chấm Điểm</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('chatbot')}
             className={currentTab === 'chatbot' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
-            <Bot size={18} />
+            <Volume2 size={18} />
             <span>🤖 AI Speaking Partner</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('grammar')}
             className={currentTab === 'grammar' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <BookOpen size={18} />
             <span>🧩 Ngữ Pháp HSK4</span>
@@ -76,42 +76,40 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
           <button
             onClick={() => setCurrentTab('articles')}
             className={currentTab === 'articles' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <BookOpen size={18} />
             <span>📰 Bài Đọc & Báo HSK4</span>
           </button>
 
-
           <button
             onClick={() => setCurrentTab('library')}
             className={currentTab === 'library' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <BookOpen size={18} />
             <span>Kho 981 Cụm Từ</span>
           </button>
 
-
-
           <button
             onClick={() => setCurrentTab('dialogue')}
             className={currentTab === 'dialogue' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <MessageSquare size={18} />
-            <span>Hội Thoại Ngữ Cảnh</span>
+            <span>💬 Hội Thoại Ngữ Cảnh</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('builder')}
             className={currentTab === 'builder' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.875rem' }}
+            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
-            <Puzzle size={18} />
-            <span>Ghép Cụm Từ</span>
+            <CheckCircle2 size={18} />
+            <span>🧩 Ghép Cụm Từ</span>
           </button>
-        </nav>
+        </div>
+
 
         {/* User Progress Stats */}
         <div style={{
