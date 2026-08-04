@@ -6,8 +6,10 @@ import DialogueRoleplay from './components/DialogueRoleplay';
 import SentenceBuilder from './components/SentenceBuilder';
 import AIChatbot from './components/AIChatbot';
 import ArticleReader from './components/ArticleReader';
+import GrammarLab from './components/GrammarLab';
 
 import hsk4Data from './data/hsk4_data.json';
+
 
 
 
@@ -96,9 +98,14 @@ export default function App() {
           />
         )}
 
+        {currentTab === 'grammar' && (
+          <GrammarLab />
+        )}
+
         {currentTab === 'articles' && (
           <ArticleReader />
         )}
+
 
         {currentTab === 'library' && (
           <PhraseCardBrowser

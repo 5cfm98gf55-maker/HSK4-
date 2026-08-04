@@ -1,0 +1,112 @@
+[
+  {
+    "id": "g1",
+    "pattern": "不仅……，还/也……",
+    "pinyin": "bùjǐn..., hái/yě...",
+    "meaning": "Không những/Không chỉ..., mà còn...",
+    "category": "Cấu trúc Tăng tiến (Progressive)",
+    "memoryTrick": "💡 Mẹo nhớ: '不仅' = không chỉ dừng ở đây; '还/也' = mà còn cộng thêm điều tuyệt vời nữa!",
+    "formula": "[Chủ ngữ] + 不仅 + [Điều 1] ， 还/也 + [Điều 2 (Cùng chủ ngữ)]",
+    "explanation": "Dùng để liên kết hai vế thể hiện mức độ bổ sung tăng tiến. Nếu hai vế cùng chủ ngữ, '不仅' đứng sau chủ ngữ. Nếu khác chủ ngữ, '不仅' đứng trước chủ ngữ 1.",
+    "exampleSentence": {
+      "zh": "去中国旅游不仅能欣赏美丽的风景，还能体验丰富的历史文化。",
+      "pinyin": "Qù Zhōngguó lǚyóu bùjǐn néng xīnshǎng měilì de fēngjǐng, hái néng tǐyàn fēngfù de lìshǐ wénhuà.",
+      "vi": "Đi du lịch Trung Quốc không chỉ có thể thưởng thức phong cảnh xinh đẹp, mà còn có thể trải nghiệm văn hóa lịch sử phong phú.",
+      "components": [
+        { "text": "去中国旅游", "type": "subject", "label": "Chủ ngữ/Hành động" },
+        { "text": "不仅", "type": "grammar", "label": "Cấu trúc HSK4 (Không chỉ)" },
+        { "text": "能欣赏美丽的风景", "type": "predicate", "label": "Vế 1 (Thưởng thức phong cảnh)" },
+        { "text": "，", "type": "punct", "label": "" },
+        { "text": "还", "type": "grammar", "label": "Cấu trúc HSK4 (Mà còn)" },
+        { "text": "能体验丰富的历史文化。", "type": "predicate2", "label": "Vế 2 (Trải nghiệm văn hóa)" }
+      ]
+    }
+  },
+  {
+    "id": "g2",
+    "pattern": "只要……，就……",
+    "pinyin": "zhǐyào..., jiù...",
+    "meaning": "Chỉ cần..., thì...",
+    "category": "Cấu trúc Điều kiện (Conditional)",
+    "memoryTrick": "💡 Mẹo nhớ: '只要' trao đi 1 điều kiện duy nhất; '就' nhận về kết quả tất yếu!",
+    "formula": "只要 + [Điều kiện cần] ， 就 + [Kết quả xảy ra]",
+    "explanation": "Biểu thị điều kiện đủ. Chỉ cần đáp ứng điều kiện nêu ở vế '只要' thì kết quả ở vế '就' nhất định sẽ xảy ra.",
+    "exampleSentence": {
+      "zh": "只要我们保持积极的态度，就一定能克服面前的困难。",
+      "pinyin": "Zhǐyào wǒmen bǎochí jījí de tàidu, jiù yīdìng néng kèfú miànqián de kùnnán.",
+      "vi": "Chỉ cần chúng ta duy trì thái độ tích cực, thì nhất định có thể khắc phục khó khăn trước mắt.",
+      "components": [
+        { "text": "只要", "type": "grammar", "label": "Cấu trúc HSK4 (Chỉ cần)" },
+        { "text": "我们保持积极的态度", "type": "subject", "label": "Vế điều kiện (Giữ thái độ tích cực)" },
+        { "text": "，", "type": "punct", "label": "" },
+        { "text": "就", "type": "grammar", "label": "Cấu trúc HSK4 (Thì)" },
+        { "text": "一定能克服面前的困难。", "type": "predicate", "label": "Vế kết quả (Khắc phục khó khăn)" }
+      ]
+    }
+  },
+  {
+    "id": "g3",
+    "pattern": "把字句 (Cấu trúc câu chữ 把)",
+    "pinyin": "bǎ zì jù",
+    "meaning": "Tác động làm thay đổi trạng thái/vị trí của đối tượng",
+    "category": "Câu Đặc Thù HSK4 (Special Sentence)",
+    "memoryTrick": "💡 Mẹo nhớ: BẢ = 'Nắm lấy đối tượng X' -> 'Xử lý/Ném X đi chỗ khác'!",
+    "formula": "[Chủ ngữ] + 把 + [Tân ngữ/Đối tượng] + [Động từ] + [Thành phần bổ ngữ/Kết quả]",
+    "explanation": "Dùng để nhấn mạnh sự tác động của chủ ngữ làm thay đổi vị trí, trạng thái hoặc kết quả của tân ngữ.",
+    "exampleSentence": {
+      "zh": "请你把这份一份重要的文件仔细整理一下。",
+      "pinyin": "Qǐng nǐ bǎ zhè fèn yòngxīn de wénjiàn zǐxì zhěnglǐ yīxià.",
+      "vi": "Xin bạn hãy đem tài liệu quan trọng này sắp xếp cẩn thận một chút.",
+      "components": [
+        { "text": "请你", "type": "subject", "label": "Chủ ngữ (Bạn)" },
+        { "text": "把", "type": "grammar", "label": "Câu chữ 把 (Tác động)" },
+        { "text": "这份重要的文件", "type": "object", "label": "Tân ngữ/Đối tượng (Tài liệu này)" },
+        { "text": "仔细整理一下。", "type": "predicate", "label": "Động từ + Kết quả (Sắp xếp cẩn thận)" }
+      ]
+    }
+  },
+  {
+    "id": "g4",
+    "pattern": "被字句 (Cấu trúc câu bị động chữ 被)",
+    "pinyin": "bèi zì jù",
+    "meaning": "Bị / Được (Câu bị động)",
+    "category": "Câu Đặc Thù HSK4 (Passive Sentence)",
+    "memoryTrick": "💡 Mẹo nhớ: Nạn nhân đứng đầu -> CHỮ 被 -> Kẻ tác động -> Hậu quả chịu đựng!",
+    "formula": "[Đối tượng chịu tác động] + 被 + [Đối tượng gây ra] + [Động từ tác động]",
+    "explanation": "Biểu thị câu bị động trong tiếng Trung, thường dùng khi đối tượng chịu tác động bị ảnh hưởng trực tiếp.",
+    "exampleSentence": {
+      "zh": "准备好的方案被总经理在会议上极力赞扬了。",
+      "pinyin": "Zhǔnbèi hǎo de fāng'àn bèi zǒngjīnglǐ zài huìyì shàng jílì zànyáng le.",
+      "vi": "Phương án đã chuẩn bị được tổng giám đốc khen ngợi hết lời trong cuộc họp.",
+      "components": [
+        { "text": "准备好的方案", "type": "subject", "label": "Nạn nhân/Đối tượng nhận (Phương án)" },
+        { "text": "被", "type": "grammar", "label": "Câu chữ 被 (Bị/Được)" },
+        { "text": "总经理", "type": "object", "label": "Tác nhân (Tổng giám đốc)" },
+        { "text": "在会议上极力赞扬了。", "type": "predicate", "label": "Hành động (Hết lời khen ngợi)" }
+      ]
+    }
+  },
+  {
+    "id": "g5",
+    "pattern": "即使……，也……",
+    "pinyin": "jíshǐ..., yě...",
+    "meaning": "Cho dù / Dù cho..., cũng...",
+    "category": "Cấu trúc Nhượng bộ (Concession)",
+    "memoryTrick": "💡 Mẹo nhớ: '即使' = giả sử tình huống xấu nhất xảy ra; '也' = quyết tâm không đổi!",
+    "formula": "即使 + [Tình huống giả định/Khó khăn] ， 也 + [Kết quả/Quyết tâm giữ nguyên]",
+    "explanation": "Dùng để giả định một tình huống cực đoan hoặc khó khăn, vế sau khẳng định kết quả vẫn không bị ảnh hưởng.",
+    "exampleSentence": {
+      "zh": "即使遇到了很大的困难，我们也不能轻易放弃努力。",
+      "pinyin": "Jíshǐ yù dào le hěn dà de kùnnán, wǒmen yě bùnéng qīngyì fàngqì nǔlì.",
+      "vi": "Cho dù gặp phải khó khăn rất lớn, chúng ta cũng không thể dễ dàng từ bỏ nỗ lực.",
+      "components": [
+        { "text": "即使", "type": "grammar", "label": "Cấu trúc HSK4 (Cho dù)" },
+        { "text": "遇到了很大的困难", "type": "subject", "label": "Tình huống xấu (Gặp khó khăn lớn)" },
+        { "text": "，", "type": "punct", "label": "" },
+        { "text": "我们", "pinyin": "wǒmen", "label": "Chủ ngữ" },
+        { "text": "也", "type": "grammar", "label": "Cấu trúc HSK4 (Cũng)" },
+        { "text": "不能轻易放弃努力。", "type": "predicate", "label": "Kết quả không đổi (Không từ bỏ)" }
+      ]
+    }
+  }
+]
