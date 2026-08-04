@@ -4,11 +4,11 @@
     "titleZh": "现代人的工作与生活平衡",
     "titlePinyin": "Xiàndài rén de gōngzuò yǔ shēnghuó pínghéng",
     "titleVi": "Cân bằng Công việc và Cuộc sống của Con người Hiện đại",
-    "category": "Công sở & Đời sống",
+    "category": "💼 Công sở & Đời sống",
     "summaryVi": "Bài đọc bàn về cách sắp xếp thời gian hợp lý, giải tỏa áp lực công việc và duy trì sức khỏe tinh thần.",
     "sentences": [
       {
-        "id": "s1",
+        "id": "art1-s1",
         "zh": "在现代社会中，很多人觉得工作压力很大，很难安排好自己的时间。",
         "pinyin": "Zài xiàndài shèhuì zhōng, hěnduō rén juéde gōngzuò yālì hěn dà, hěn nán ānpái hǎo zìjǐ de shíjiān.",
         "vi": "Trong xã hội hiện đại, rất nhiều người cảm thấy áp lực công việc rất lớn, rất khó để sắp xếp tốt thời gian của bản thân.",
@@ -34,7 +34,7 @@
         ]
       },
       {
-        "id": "s2",
+        "id": "art1-s2",
         "zh": "为了解决这个问题，我们需要学会合理的沟通与互相支持。",
         "pinyin": "Wèile jiějué zhège wèntí, wǒmen xūyào xuéhuì hélǐ de gōutōng yǔ hùxiāng zhīchí.",
         "vi": "Để giải quyết vấn đề này, chúng ta cần học cách giao tiếp hợp lý và hỗ trợ lẫn nhau.",
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "id": "s3",
+        "id": "art1-s3",
         "zh": "只要保持积极的态度，就一定能获得成功的喜悦。",
         "pinyin": "Zhǐyào bǎochí jījí de tàidu, jiù yīdìng néng huòdé chénggōng de xǐyuè.",
         "vi": "Chỉ cần giữ thái độ tích cực, thì nhất định có thể gặt hái được niềm vui của sự thành công.",
@@ -91,11 +91,11 @@
     "titleZh": "中国的旅游与文化体验",
     "titlePinyin": "Zhōngguó de lǚyóu yǔ wénhuà tǐyàn",
     "titleVi": "Trải nghiệm Du lịch và Văn hóa Trung Quốc",
-    "category": "Du lịch & Văn hóa",
+    "category": "✈️ Du lịch & Văn hóa",
     "summaryVi": "Bài viết giới thiệu phong cảnh thiên nhiên tuyệt đẹp và tính cách hiếu khách của người dân địa phương.",
     "sentences": [
       {
-        "id": "s1",
+        "id": "art2-s1",
         "zh": "去中国旅游不仅能欣赏美丽的风景，还能体验丰富的历史文化。",
         "pinyin": "Qù Zhōngguó lǚyóu bùjǐn néng xīnshǎng měilì de fēngjǐng, hái néng tǐyàn fēngfù de lìshǐ wénhuà.",
         "vi": "Đi du lịch Trung Quốc không chỉ có thể thưởng thức phong cảnh xinh đẹp, mà còn có thể trải nghiệm văn hóa lịch sử phong phú.",
@@ -121,7 +121,7 @@
         ]
       },
       {
-        "id": "s2",
+        "id": "art2-s2",
         "zh": "当地居民非常热情，总是愿意向游客提供帮助。",
         "pinyin": "Dāngdì jūmín fēicháng rèqíng, zǒngshì yuànyì xiàng yóukè tígōng bāngzhù.",
         "vi": "Cư dân địa phương rất nhiệt tình, luôn sẵn lòng cung cấp sự giúp đỡ cho du khách.",
@@ -145,6 +145,276 @@
       { "word": "欣赏", "pinyin": "xīnshǎng", "meaning": "Thưởng thức", "collocation": "欣赏音乐 (Thưởng thức âm nhạc), 欣赏风景 (Thưởng thức phong cảnh)" },
       { "word": "提供", "pinyin": "tígōng", "meaning": "Cung cấp", "collocation": "提供帮助 (Cung cấp sự giúp đỡ), 提供服务 (Cung cấp dịch vụ)" },
       { "word": "热情", "pinyin": "rèqíng", "meaning": "Nhiệt tình", "collocation": "热情招待 (Đón tiếp nhiệt tình), 充满热情 (Tràn đầy nhiệt huyết)" }
+    ]
+  },
+  {
+    "id": "art-3",
+    "titleZh": "科技如何改变我们的日常生活",
+    "titlePinyin": "Kējì rúhé gǎibiàn wǒmen de rìcháng shēnghuó",
+    "titleVi": "Công nghệ Thay đổi Cuộc sống Hàng ngày Của Chúng ta Như thế nào",
+    "category": "📱 Công nghệ & Mạng xã hội",
+    "summaryVi": "Khám phá sự phát triển của điện thoại thông minh và thanh toán điện tử trong đời sống.",
+    "sentences": [
+      {
+        "id": "art3-s1",
+        "zh": "随着科技的发展，智能手机改变了人们交流与购物的方式。",
+        "pinyin": "Suízhe kējì de fāzhǎn, zhìnéng shǒujī gǎibiàn le rénmen jiāoliú yǔ gòuwù de fāngshì.",
+        "vi": "Cùng với sự phát triển của công nghệ, điện thoại thông minh đã thay đổi phương thức giao lưu và mua sắm của mọi người.",
+        "tokens": [
+          { "word": "随着", "pinyin": "suízhe", "meaning": "cùng với", "isHsk4": true },
+          { "word": "科技", "pinyin": "kējì", "meaning": "công nghệ" },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "发展", "pinyin": "fāzhǎn", "meaning": "phát triển", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "智能手机", "pinyin": "zhìnéng shǒujī", "meaning": "điện thoại thông minh" },
+          { "word": "改变", "pinyin": "gǎibiàn", "meaning": "thay đổi", "isHsk4": true },
+          { "word": "了", "pinyin": "le", "meaning": "rồi" },
+          { "word": "人们", "pinyin": "rénmen", "meaning": "con người" },
+          { "word": "交流", "pinyin": "jiāoliú", "meaning": "giao lưu", "isHsk4": true },
+          { "word": "与", "pinyin": "yǔ", "meaning": "và", "isHsk4": true },
+          { "word": "购物", "pinyin": "gòuwù", "meaning": "mua sắm", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "方式", "pinyin": "fāngshì", "meaning": "phương thức", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      },
+      {
+        "id": "art3-s2",
+        "zh": "只要连上互联网，我们就能方便地获得各种有用的信息。",
+        "pinyin": "Zhǐyào lián shàng hùliánwǎng, wǒmen jiù néng fāngbiàn de huòdé gèzhǒng yǒuyòng de xìnxī.",
+        "vi": "Chỉ cần kết nối Internet, chúng ta liền có thể tiện lợi gặt hái được đủ loại thông tin hữu ích.",
+        "tokens": [
+          { "word": "只要", "pinyin": "zhǐyào", "meaning": "chỉ cần", "isHsk4": true },
+          { "word": "连上", "pinyin": "lián shàng", "meaning": "kết nối" },
+          { "word": "互联网", "pinyin": "hùliánwǎng", "meaning": "Internet", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "我们", "pinyin": "wǒmen", "meaning": "chúng ta" },
+          { "word": "就", "pinyin": "jiù", "meaning": "thì" },
+          { "word": "能", "pinyin": "néng", "meaning": "có thể" },
+          { "word": "方便", "pinyin": "fāngbiàn", "meaning": "tiện lợi" },
+          { "word": "地", "pinyin": "de", "meaning": "một cách" },
+          { "word": "获得", "pinyin": "huòdé", "meaning": "đạt được, gặt hái", "isHsk4": true },
+          { "word": "各种", "pinyin": "gèzhǒng", "meaning": "các loại" },
+          { "word": "有用", "pinyin": "yǒuyòng", "meaning": "hữu ích" },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "信息", "pinyin": "xìnxī", "meaning": "thông tin", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "改变", "pinyin": "gǎibiàn", "meaning": "Thay đổi", "collocation": "改变生活 (Thay đổi cuộc sống), 改变主意 (Thay đổi ý định)" },
+      { "word": "交流", "pinyin": "jiāoliú", "meaning": "Giao lưu", "collocation": "文化交流 (Giao lưu văn hóa), 语言交流 (Giao lưu ngôn ngữ)" },
+      { "word": "信息", "pinyin": "xìnxī", "meaning": "Thông tin", "collocation": "获取信息 (Thu thập thông tin), 个人信息 (Thông tin cá nhân)" }
+    ]
+  },
+  {
+    "id": "art-4",
+    "titleZh": "养成良好的健康生活习惯",
+    "titlePinyin": "Yǎngchéng liánghǎo de jiànkāng shēnghuó xíguàn",
+    "titleVi": "Nuôi Dưỡng Thói Quen Sống Khỏe Mạnh",
+    "category": "🥗 Sức khỏe & Thể thao",
+    "summaryVi": "Lời khuyên về việc tập luyện thể thao, ăn uống lành mạnh và đảm bảo giấc ngủ.",
+    "sentences": [
+      {
+        "id": "art4-s1",
+        "zh": "为了保持健康的身体，我们必须坚持每天锻炼身体。",
+        "pinyin": "Wèile bǎochí jiànkāng de shēntǐ, wǒmen bìxū jiānchí měitiān duànliàn shēntǐ.",
+        "vi": "Để duy trì một cơ thể khỏe mạnh, chúng ta nhất định phải kiên trì rèn luyện thân thể mỗi ngày.",
+        "tokens": [
+          { "word": "为了", "pinyin": "wèile", "meaning": "để", "isHsk4": true },
+          { "word": "保持", "pinyin": "bǎochí", "meaning": "duy trì", "isHsk4": true },
+          { "word": "健康", "pinyin": "jiànkāng", "meaning": "khỏe mạnh" },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "身体", "pinyin": "shēntǐ", "meaning": "thân thể" },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "我们", "pinyin": "wǒmen", "meaning": "chúng ta" },
+          { "word": "必须", "pinyin": "bìxū", "meaning": "phải, nhất định phải", "isHsk4": true },
+          { "word": "坚持", "pinyin": "jiānchí", "meaning": "kiên trì", "isHsk4": true },
+          { "word": "每天", "pinyin": "měitiān", "meaning": "mỗi ngày" },
+          { "word": "锻炼", "pinyin": "duànliàn", "meaning": "rèn luyện", "isHsk4": true },
+          { "word": "身体", "pinyin": "shēntǐ", "meaning": "thân thể" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      },
+      {
+        "id": "art4-s2",
+        "zh": "此外，按时睡觉和多吃新鲜蔬菜也对身体非常有益。",
+        "pinyin": "Cǐwài, ànshí shuìjiào hé duō chī xīnxiān shūcài yě duì shēntǐ fēicháng yǒuyì.",
+        "vi": "Ngoài ra, đi ngủ đúng giờ và ăn nhiều rau củ tươi cũng rất có lợi cho cơ thể.",
+        "tokens": [
+          { "word": "此外", "pinyin": "cǐwài", "meaning": "ngoài ra", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "按时", "pinyin": "ànshí", "meaning": "đúng giờ", "isHsk4": true },
+          { "word": "睡觉", "pinyin": "shuìjiào", "meaning": "đi ngủ" },
+          { "word": "和", "pinyin": "hé", "meaning": "và" },
+          { "word": "多吃", "pinyin": "duō chī", "meaning": "ăn nhiều" },
+          { "word": "新鲜", "pinyin": "xīnxiān", "meaning": "tươi mới", "isHsk4": true },
+          { "word": "蔬菜", "pinyin": "shūcài", "meaning": "rau củ" },
+          { "word": "也", "pinyin": "yě", "meaning": "cũng" },
+          { "word": "对", "pinyin": "duì", "meaning": "đối với" },
+          { "word": "身体", "pinyin": "shēntǐ", "meaning": "thân thể" },
+          { "word": "非常", "pinyin": "fēicháng", "meaning": "rất" },
+          { "word": "有益", "pinyin": "yǒuyì", "meaning": "có lợi", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "坚持", "pinyin": "jiānchí", "meaning": "Kiên trì", "collocation": "坚持锻炼 (Kiên trì rèn luyện), 坚持梦想 (Kiên trì giấc mơ)" },
+      { "word": "按时", "pinyin": "ànshí", "meaning": "Đúng giờ", "collocation": "按时完成 (Hoàn thành đúng giờ), 按时吃药 (Uống thuốc đúng giờ)" }
+    ]
+  },
+  {
+    "id": "art-5",
+    "titleZh": "品尝中国美食与饮食文化",
+    "titlePinyin": "Pǐncháng Zhōngguó měishí yǔ yǐnshí wénhuà",
+    "titleVi": "Thưởng Thức Ẩm Thực và Văn Hóa Ăn Uống Trung Quốc",
+    "category": "🍲 Ẩm thực & Mua sắm",
+    "summaryVi": "Giới thiệu các món ăn đặc sắc như Sủi cảo, Vịt quay Bắc Kinh và phong tục uống trà.",
+    "sentences": [
+      {
+        "id": "art5-s1",
+        "zh": "中国的美食种类非常丰富，每个地区都有独特的代表菜肴。",
+        "pinyin": "Zhōngguó de měishí zhǒnglèi fēicháng fēngfù, měi gè dìqū dōu yǒu dútè de dàibiǎo càiyáo.",
+        "vi": "Chủng loại ẩm thực Trung Quốc rất phong phú, mỗi địa phương đều có món ăn đại diện độc đáo.",
+        "tokens": [
+          { "word": "中国", "pinyin": "Zhōngguó", "meaning": "Trung Quốc" },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "美食", "pinyin": "měishí", "meaning": "món ngon" },
+          { "word": "种类", "pinyin": "zhǒnglèi", "meaning": "chủng loại", "isHsk4": true },
+          { "word": "非常", "pinyin": "fēicháng", "meaning": "rất" },
+          { "word": "丰富", "pinyin": "fēngfù", "meaning": "phong phú", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "每个", "pinyin": "měi gè", "meaning": "mỗi" },
+          { "word": "地区", "pinyin": "dìqū", "meaning": "địa phương, khu vực", "isHsk4": true },
+          { "word": "都", "pinyin": "dōu", "meaning": "đều" },
+          { "word": "有", "pinyin": "yǒu", "meaning": "có" },
+          { "word": "独特", "pinyin": "dútè", "meaning": "độc đáo", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "代表", "pinyin": "dàibiǎo", "meaning": "đại diện", "isHsk4": true },
+          { "word": "菜肴", "pinyin": "càiyáo", "meaning": "món ăn" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "丰富", "pinyin": "fēngfù", "meaning": "Phong phú", "collocation": "经验丰富 (Kinh nghiệm phong phú), 内容丰富 (Nội dung phong phú)" },
+      { "word": "独特", "pinyin": "dútè", "meaning": "Độc đáo", "collocation": "独特风格 (Phong cách độc đáo), 独特魅力 (Sức hút độc đáo)" }
+    ]
+  },
+  {
+    "id": "art-6",
+    "titleZh": "外语学习的有效技巧",
+    "titlePinyin": "Wàiyǔ xuéxí de yǒuxiào jìqiǎo",
+    "titleVi": "Bí Quyết Học Ngoại Ngữ Hiệu Quả",
+    "category": "🎓 Học tập & Ngôn ngữ",
+    "summaryVi": "Luyện tập phản xạ hàng ngày qua việc xem phim, nghe podcast và giao tiếp với người bản xứ.",
+    "sentences": [
+      {
+        "id": "art6-s1",
+        "zh": "学习一门外语需要不断地练习和积累词汇。",
+        "pinyin": "Xuéxí yī mén wàiyǔ xūyào bùduàn de liànxí hé jīlěi cíhuì.",
+        "vi": "Học một môn ngoại ngữ cần sự rèn luyện không ngừng và tích lũy từ vựng.",
+        "tokens": [
+          { "word": "学习", "pinyin": "xuéxí", "meaning": "học tập" },
+          { "word": "一门", "pinyin": "yī mén", "meaning": "một môn" },
+          { "word": "外语", "pinyin": "wàiyǔ", "meaning": "ngoại ngữ" },
+          { "word": "需要", "pinyin": "xūyào", "meaning": "cần" },
+          { "word": "不断", "pinyin": "bùduàn", "meaning": "không ngừng", "isHsk4": true },
+          { "word": "地", "pinyin": "de", "meaning": "một cách" },
+          { "word": "练习", "pinyin": "liànxí", "meaning": "luyện tập" },
+          { "word": "和", "pinyin": "hé", "meaning": "và" },
+          { "word": "积累", "pinyin": "jīlěi", "meaning": "tích lũy", "isHsk4": true },
+          { "word": "词汇", "pinyin": "cíhuì", "meaning": "từ vựng", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "积累", "pinyin": "jīlěi", "meaning": "Tích lũy", "collocation": "积累经验 (Tích lũy kinh nghiệm), 积累知识 (Tích lũy kiến thức)" },
+      { "word": "不断", "pinyin": "bùduàn", "meaning": "Không ngừng", "collocation": "不断进步 (Không ngừng tiến bộ), 不断学习 (Không ngừng học hỏi)" }
+    ]
+  },
+  {
+    "id": "art-7",
+    "titleZh": "保护环境与绿色生活",
+    "titlePinyin": "Bǎohù huánjìng yǔ lǜsè shēnghuó",
+    "titleVi": "Bảo Vệ Môi Trường và Lối Sống Xanh",
+    "category": "🌿 Môi trường & Thiên nhiên",
+    "summaryVi": "Hành động nhỏ như giảm rác thải nhựa và tiết kiệm năng lượng mang lại ý nghĩa lớn.",
+    "sentences": [
+      {
+        "id": "art7-s1",
+        "zh": "为了保护我们共同的家园，每个人都应该行动起来节约资源。",
+        "pinyin": "Wèile bǎohù wǒmen gòngtóng de jiāyuán, měi gè rén dōu yīnggāi xíngdòng qǐlái jiéyuē zīyuán.",
+        "vi": "Để bảo vệ mái nhà chung của chúng ta, mỗi người đều nên hành động tiết kiệm tài nguyên.",
+        "tokens": [
+          { "word": "为了", "pinyin": "wèile", "meaning": "để", "isHsk4": true },
+          { "word": "保护", "pinyin": "bǎohù", "meaning": "bảo vệ", "isHsk4": true },
+          { "word": "我们", "pinyin": "wǒmen", "meaning": "chúng ta" },
+          { "word": "共同", "pinyin": "gòngtóng", "meaning": "chung", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "家园", "pinyin": "jiāyuán", "meaning": "mái nhà" },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "每个人", "pinyin": "měi gè rén", "meaning": "mỗi người" },
+          { "word": "都", "pinyin": "dōu", "meaning": "đều" },
+          { "word": "应该", "pinyin": "yīnggāi", "meaning": "nên" },
+          { "word": "行动", "pinyin": "xíngdòng", "meaning": "hành động", "isHsk4": true },
+          { "word": "起来", "pinyin": "qǐlái", "meaning": "lên" },
+          { "word": "节约", "pinyin": "jiéyuē", "meaning": "tiết kiệm", "isHsk4": true },
+          { "word": "资源", "pinyin": "zīyuán", "meaning": "tài nguyên" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "保护", "pinyin": "bǎohù", "meaning": "Bảo vệ", "collocation": "保护环境 (Bảo vệ môi trường), 保护动物 (Bảo vệ động vật)" },
+      { "word": "节约", "pinyin": "jiéyuē", "meaning": "Tiết kiệm", "collocation": "节约用水 (Tiết kiệm nước), 节约时间 (Tiết kiệm thời gian)" }
+    ]
+  },
+  {
+    "id": "art-8",
+    "titleZh": "真挚友谊的重要性",
+    "titlePinyin": "Zhēnzhì yǒuyì de zhòngyàoxìng",
+    "titleVi": "Tầm Quan Trọng Của Tình Bạn Chân Thành",
+    "category": "❤️ Tình bạn & Gia đình",
+    "summaryVi": "Bạn tốt là người luôn sẵn sàng chia sẻ niềm vui và hỗ trợ khi ta gặp khó khăn.",
+    "sentences": [
+      {
+        "id": "art8-s1",
+        "zh": "真正的朋友不仅可以在快乐时与你分享，更会在困难时陪伴在你身边。",
+        "pinyin": "Zhēnzhèng de péngyǒu bùjǐn kěyǐ zài kuàilè shí yǔ nǐ fēnxiǎng, gèng huì zài kùnnán shí péibàn zài nǐ shēnbiān.",
+        "vi": "Người bạn thực sự không chỉ chia sẻ niềm vui lúc bạn hạnh phúc, mà còn đồng hành bên bạn khi gặp khó khăn.",
+        "tokens": [
+          { "word": "真正", "pinyin": "zhēnzhèng", "meaning": "chân chính, thực sự", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "朋友", "pinyin": "péngyǒu", "meaning": "bạn bè" },
+          { "word": "不仅", "pinyin": "bùjǐn", "meaning": "không chỉ", "isHsk4": true },
+          { "word": "可以", "pinyin": "kěyǐ", "meaning": "có thể" },
+          { "word": "在", "pinyin": "zài", "meaning": "ở" },
+          { "word": "快乐", "pinyin": "kuàilè", "meaning": "vui vẻ" },
+          { "word": "时", "pinyin": "shí", "meaning": "lúc" },
+          { "word": "与", "pinyin": "yǔ", "meaning": "cùng với", "isHsk4": true },
+          { "word": "你", "pinyin": "nǐ", "meaning": "bạn" },
+          { "word": "分享", "pinyin": "fēnxiǎng", "meaning": "chia sẻ", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "更", "pinyin": "gèng", "meaning": "càng" },
+          { "word": "会", "pinyin": "huì", "meaning": "sẽ" },
+          { "word": "在", "pinyin": "zài", "meaning": "ở" },
+          { "word": "困难", "pinyin": "kùnnán", "meaning": "khó khăn", "isHsk4": true },
+          { "word": "时", "pinyin": "shí", "meaning": "lúc" },
+          { "word": "陪伴", "pinyin": "péibàn", "meaning": "đồng hành", "isHsk4": true },
+          { "word": "在", "pinyin": "zài", "meaning": "ở" },
+          { "word": "你", "pinyin": "nǐ", "meaning": "bạn" },
+          { "word": "身边", "pinyin": "shēnbiān", "meaning": "bên cạnh" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "分享", "pinyin": "fēnxiǎng", "meaning": "Chia sẻ", "collocation": "分享快乐 (Chia sẻ niềm vui), 分享经验 (Chia sẻ kinh nghiệm)" },
+      { "word": "陪伴", "pinyin": "péibàn", "meaning": "Đồng hành", "collocation": "陪伴家人 (Đồng hành cùng gia đình), 互相陪伴 (Đồng hành lẫn nhau)" }
     ]
   }
 ]

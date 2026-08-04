@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { BookOpen, Volume2, Play, Sparkles, CheckCircle2, AlertCircle, ChevronRight } from './Icons';
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Volume2, Play, Sparkles, CheckCircle2, AlertCircle, ChevronRight, Settings, HelpCircle } from './Icons';
 import articlesData from '../data/hsk4_articles.json';
-
 
 export default function ArticleReader() {
   const [selectedArticleId, setSelectedArticleId] = useState(articlesData[0].id);
@@ -9,9 +8,41 @@ export default function ArticleReader() {
   const [isPlayingFull, setIsPlayingFull] = useState(false);
   const [activeSentenceId, setActiveSentenceId] = useState(null);
 
+  // Audio Speech Customization States
+  const [speed, setSpeed] = useState(1.0);
+  const [pitch, setPitch] = useState(1.0);
+  const [availableVoices, setAvailableVoices] = useState([]);
+  const [selectedVoiceURI, setSelectedVoiceURI] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
+
   const currentArticle = articlesData.find(a => a.id === selectedArticleId) || articlesData[0];
 
-  // Speak specific text
+  // Load native Chinese voices
+  useEffect(() => {
+    const loadVoices = () => {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      const zhVoices = voices.filter(v => 
+        v.lang.toLowerCase().includes('zh') || 
+        v.lang.toLowerCase().includes('cn') ||
+        v.name.includes('Chinese') ||
+        v.name.includes('Mandarin')
+      );
+
+      setAvailableVoices(zhVoices);
+      if (zhVoices.length > 0 && !selectedVoiceURI) {
+        const bestVoice = zhVoices.find(v => v.name.includes('Natural') || v.name.includes('Neural') || v.name.includes('Google')) || zhVoices[0];
+        setSelectedVoiceURI(bestVoice.voiceURI);
+      }
+    };
+
+    loadVoices();
+    if (window.speechSynthesis) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+  }, []);
+
+  // Speak specific text with custom speed & voice
   const speakText = (text, onEndCallback) => {
     if (!('speechSynthesis' in window)) {
       alert('Trình duyệt không hỗ trợ Web Speech Synthesis');
@@ -20,11 +51,13 @@ export default function ArticleReader() {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'zh-CN';
-    utterance.rate = 0.9;
+    utterance.rate = speed;
+    utterance.pitch = pitch;
 
-    const voices = window.speechSynthesis.getVoices();
-    const zhVoice = voices.find(v => v.name.includes('Natural') || v.name.includes('Neural') || v.lang.includes('zh') || v.lang.includes('CN'));
-    if (zhVoice) utterance.voice = zhVoice;
+    if (selectedVoiceURI && availableVoices.length > 0) {
+      const v = availableVoices.find(voice => voice.voiceURI === selectedVoiceURI);
+      if (v) utterance.voice = v;
+    }
 
     if (onEndCallback) utterance.onend = onEndCallback;
 
@@ -61,7 +94,7 @@ export default function ArticleReader() {
   };
 
   return (
-    <div className="animate-fade-in" style={{ maxWidth: '950px', margin: '2rem auto', padding: '0 1rem' }}>
+    <div className="animate-fade-in" style={{ maxWidth: '980px', margin: '2rem auto', padding: '0 1rem' }}>
       
       {/* Top Header */}
       <div className="glass-card" style={{ padding: '1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
@@ -76,46 +109,129 @@ export default function ArticleReader() {
           </div>
           <div>
             <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#f8fafc' }}>
-              📰 Luyện Đọc Bài Báo & Câu Dài HSK4
+              📰 Thư Viện Bài Đọc & Báo HSK4 Tương Tác ({articlesData.length} Bài)
             </h2>
             <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-              Bấm vào bất kỳ từ nào để xem Pinyin, Nghĩa & Nghe phát âm từ đó
+              Bấm vào bất kỳ từ nào để tra Pinyin, Nghĩa & Nghe giọng đọc bản xứ chuẩn
             </p>
           </div>
         </div>
 
-        {/* Article Selector Dropdown */}
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          {articlesData.map((art) => (
-            <button
-              key={art.id}
-              onClick={() => {
-                setSelectedArticleId(art.id);
-                setActiveToken(null);
-                window.speechSynthesis.cancel();
-                setIsPlayingFull(false);
-              }}
-              style={{
-                background: selectedArticleId === art.id ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.7)',
-                color: selectedArticleId === art.id ? '#ffffff' : '#94a3b8',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                padding: '0.5rem 0.9rem',
-                borderRadius: '10px',
-                fontSize: '0.85rem',
-                fontWeight: selectedArticleId === art.id ? 600 : 400,
-                cursor: 'pointer'
-              }}
-            >
-              {art.category}
-            </button>
-          ))}
+        {/* Action Controls */}
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <button
+            onClick={() => setShowSettings(!showSettings)}
+            className="btn-secondary"
+            style={{ padding: '0.5rem 0.8rem', fontSize: '0.85rem' }}
+          >
+            <Settings size={16} /> Tùy chọn Giọng & Tốc độ
+          </button>
         </div>
+      </div>
+
+      {/* Voice & Speed Settings Drawer */}
+      {showSettings && (
+        <div className="glass-card animate-fade-in" style={{ padding: '1.25rem', marginBottom: '1.5rem', background: 'rgba(15, 23, 42, 0.95)' }}>
+          <h4 style={{ fontSize: '0.95rem', color: '#c084fc', marginBottom: '0.75rem', fontWeight: 600 }}>
+            🎙️ Tùy Chỉnh Giọng Đọc & Tốc Độ Bài Báo (Audio Customization)
+          </h4>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+            <div>
+              <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '0.3rem' }}>
+                Chọn Giọng Tiếng Trung (Voice Accent):
+              </label>
+              <select
+                value={selectedVoiceURI}
+                onChange={(e) => setSelectedVoiceURI(e.target.value)}
+                style={{
+                  width: '100%',
+                  background: 'rgba(30, 41, 59, 0.9)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: '#ffffff',
+                  padding: '0.5rem',
+                  borderRadius: '8px',
+                  fontSize: '0.85rem'
+                }}
+              >
+                {availableVoices.map((v) => (
+                  <option key={v.voiceURI} value={v.voiceURI}>
+                    {v.name} ({v.lang})
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '0.3rem' }}>
+                Tốc độ đọc bài báo:
+              </label>
+              <div style={{ display: 'flex', gap: '0.3rem' }}>
+                <button
+                  onClick={() => setSpeed(1.0)}
+                  style={{
+                    background: speed === 1.0 ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.8)',
+                    color: 'white', border: 'none', padding: '0.35rem 0.6rem', borderRadius: '6px', fontSize: '0.8rem', cursor: 'pointer'
+                  }}
+                >
+                  1.0x (Thường)
+                </button>
+                <button
+                  onClick={() => setSpeed(0.75)}
+                  style={{
+                    background: speed === 0.75 ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.8)',
+                    color: 'white', border: 'none', padding: '0.35rem 0.6rem', borderRadius: '6px', fontSize: '0.8rem', cursor: 'pointer'
+                  }}
+                >
+                  0.75x (Chậm)
+                </button>
+                <button
+                  onClick={() => setSpeed(0.5)}
+                  style={{
+                    background: speed === 0.5 ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.8)',
+                    color: 'white', border: 'none', padding: '0.35rem 0.6rem', borderRadius: '6px', fontSize: '0.8rem', cursor: 'pointer'
+                  }}
+                >
+                  0.5x (Rất chậm)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Article Navigation Bar */}
+      <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.75rem', marginBottom: '1.5rem' }}>
+        {articlesData.map((art) => (
+          <button
+            key={art.id}
+            onClick={() => {
+              setSelectedArticleId(art.id);
+              setActiveToken(null);
+              window.speechSynthesis.cancel();
+              setIsPlayingFull(false);
+            }}
+            style={{
+              background: selectedArticleId === art.id ? 'linear-gradient(135deg, #a855f7, #6366f1)' : 'rgba(30, 41, 59, 0.7)',
+              color: selectedArticleId === art.id ? '#ffffff' : '#94a3b8',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              padding: '0.6rem 1rem',
+              borderRadius: '12px',
+              fontSize: '0.85rem',
+              fontWeight: selectedArticleId === art.id ? 600 : 400,
+              cursor: 'pointer',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {art.category}
+          </button>
+        ))}
       </div>
 
       {/* Main Article Reader Workspace */}
       <div className="glass-card" style={{ padding: '2.5rem', textAlign: 'left', position: 'relative' }}>
         
-        {/* Article Title & Summary */}
+        {/* Article Header */}
         <div style={{ marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
@@ -143,14 +259,14 @@ export default function ArticleReader() {
               }}
             >
               <Play size={18} />
-              <span>{isPlayingFull ? 'Dừng Nghe Bài' : '🎧 Nghe Toàn Bài Báo'}</span>
+              <span>{isPlayingFull ? 'Dừng Nghe Bài' : `🎧 Nghe Toàn Bài (${speed}x)`}</span>
             </button>
           </div>
         </div>
 
         {/* Interactive Sentence Passages */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
-          {currentArticle.sentences.map((sen, sIdx) => (
+          {currentArticle.sentences.map((sen) => (
             <div
               key={sen.id}
               style={{
@@ -161,7 +277,7 @@ export default function ArticleReader() {
                 transition: 'all 0.2s ease'
               }}
             >
-              {/* Interactive Tokenized Chinese Sentence Text */}
+              {/* Interactive Tokenized Chinese Text */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.2rem', alignItems: 'baseline', marginBottom: '0.6rem' }}>
                 <button
                   onClick={() => speakText(sen.zh)}
@@ -235,7 +351,7 @@ export default function ArticleReader() {
           ))}
         </div>
 
-        {/* Selected Word Popover Inspector Modal */}
+        {/* Selected Word Inspector Box */}
         {activeToken && activeToken.word.trim() && (
           <div className="glass-card animate-fade-in" style={{
             background: 'rgba(30, 41, 59, 0.95)',
@@ -276,12 +392,12 @@ export default function ArticleReader() {
               className="btn-primary"
               style={{ padding: '0.6rem 1.2rem', background: '#a855f7' }}
             >
-              <Volume2 size={18} /> Nghe Từ Này
+              <Volume2 size={18} /> Nghe Phát Âm Từ Này
             </button>
           </div>
         )}
 
-        {/* Article Vocabulary & Phrasal Notes Box */}
+        {/* Vocabulary Notes Card */}
         <div style={{
           background: 'rgba(15, 23, 42, 0.7)',
           borderRadius: '16px',
@@ -291,7 +407,7 @@ export default function ArticleReader() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <Sparkles size={20} color="#a855f7" />
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc' }}>
-              💡 Ghi Chú Cụm Từ HSK4 Trong Bài Báo
+              💡 Bảng Chú Thích Cụm Từ HSK4 Trong Bài Báo
             </h3>
           </div>
 
