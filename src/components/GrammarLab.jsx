@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { Sparkles, Volume2, CheckCircle2, Play, ChevronRight, HelpCircle, BookOpen } from './Icons';
 import grammarData from '../data/hsk4_grammar.json';
 
-
 export default function GrammarLab() {
   const [selectedGrammarId, setSelectedGrammarId] = useState(grammarData[0].id);
+  const [selectedComponent, setSelectedComponent] = useState(null);
   const [speed, setSpeed] = useState(1.0);
 
   const currentGrammar = grammarData.find(g => g.id === selectedGrammarId) || grammarData[0];
 
   const speakText = (text) => {
-    if (!('speechSynthesis' in window)) return;
+    if (!text || !('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'zh-CN';
@@ -30,6 +30,7 @@ export default function GrammarLab() {
           border: '1px solid #c084fc'
         };
       case 'subject':
+      case 'subject2':
         return {
           background: 'rgba(59, 130, 246, 0.25)',
           color: '#93c5fd',
@@ -70,13 +71,12 @@ export default function GrammarLab() {
           }}>
             <BookOpen size={24} color="#ffffff" />
           </div>
-
           <div>
             <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#f8fafc' }}>
-              🧩 Phân Tích Ngữ Pháp HSK4 Trực Quan Câu Dài
+              🧩 Phân Tích Ngữ Pháp HSK4 Trực Quan ({grammarData.length} Cấu Trúc)
             </h2>
             <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-              Ghi nhớ nhanh qua sơ đồ khối màu sắc & Mẹo ghi nhớ độc quyền
+              Bấm vào từng khối màu để xem Pinyin, Nghĩa Tiếng Việt & Nghe âm thanh riêng!
             </p>
           </div>
         </div>
@@ -89,6 +89,7 @@ export default function GrammarLab() {
             key={item.id}
             onClick={() => {
               setSelectedGrammarId(item.id);
+              setSelectedComponent(null);
               window.speechSynthesis.cancel();
             }}
             style={{
@@ -164,14 +165,14 @@ export default function GrammarLab() {
         <div style={{ marginBottom: '2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Sparkles size={20} color="#a855f7" /> 🎨 Sơ Đồ Phân Tích Khối Màu Câu Dài HSK4:
+              <Sparkles size={20} color="#a855f7" /> 🎨 Sơ Đồ Phân Tích Khối Màu (Bấm vào khối để xem chi tiết):
             </h3>
             <button
               onClick={() => speakText(currentGrammar.exampleSentence.zh)}
               className="btn-primary"
               style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
             >
-              <Volume2 size={16} /> Nghe Câu Dài
+              <Volume2 size={16} /> Nghe Nguyên Câu
             </button>
           </div>
 
@@ -182,28 +183,38 @@ export default function GrammarLab() {
             borderRadius: '16px',
             border: '1px solid rgba(255, 255, 255, 0.08)'
           }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'center', marginBottom: '1.25rem' }}>
               {currentGrammar.exampleSentence.components.map((comp, idx) => {
+                if (comp.type === 'punct') return <span key={idx} className="zh-text" style={{ fontSize: '1.4rem', color: '#94a3b8' }}>{comp.text}</span>;
+                
                 const style = getComponentStyle(comp.type);
+                const isSelected = selectedComponent && selectedComponent.text === comp.text;
+
                 return (
                   <div
                     key={idx}
+                    onClick={() => {
+                      setSelectedComponent(comp);
+                      speakText(comp.text);
+                    }}
                     style={{
                       ...style,
-                      padding: '0.5rem 0.8rem',
-                      borderRadius: '10px',
+                      padding: '0.6rem 1rem',
+                      borderRadius: '12px',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease',
+                      transform: isSelected ? 'scale(1.05)' : 'scale(1)',
+                      boxShadow: isSelected ? '0 0 20px rgba(168, 85, 247, 0.6)' : 'none'
                     }}
-                    title={comp.label}
                   >
-                    <span className="zh-text" style={{ fontSize: '1.3rem' }}>
+                    <span className="zh-text" style={{ fontSize: '1.35rem' }}>
                       {comp.text}
                     </span>
                     {comp.label && (
-                      <span style={{ fontSize: '0.65rem', marginTop: '0.2rem', opacity: 0.9 }}>
+                      <span style={{ fontSize: '0.7rem', marginTop: '0.25rem', opacity: 0.9, fontWeight: 600 }}>
                         {comp.label}
                       </span>
                     )}
@@ -221,6 +232,46 @@ export default function GrammarLab() {
             </div>
           </div>
         </div>
+
+        {/* Selected Component Block Inspector Modal */}
+        {selectedComponent && selectedComponent.text && (
+          <div className="glass-card animate-fade-in" style={{
+            background: 'rgba(30, 41, 59, 0.95)',
+            border: '1px solid rgba(168, 85, 247, 0.5)',
+            padding: '1.25rem',
+            borderRadius: '16px',
+            marginBottom: '2rem',
+            display: 'flex',
+            justify: 'space-between',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: '#c084fc', textTransform: 'uppercase', fontWeight: 700 }}>
+                📌 Thành phần ngữ pháp vừa bấm chọn: ({selectedComponent.label})
+              </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginTop: '0.3rem' }}>
+                <h3 className="zh-text" style={{ fontSize: '1.6rem', color: '#ffffff', fontWeight: 700 }}>
+                  {selectedComponent.text}
+                </h3>
+                <span style={{ fontSize: '1.05rem', color: '#a5b4fc', fontWeight: 500 }}>
+                  {selectedComponent.pinyin}
+                </span>
+              </div>
+              <p style={{ fontSize: '1rem', color: '#cbd5e1', marginTop: '0.2rem' }}>
+                Dịch vế này: <strong style={{ color: '#38bdf8' }}>"{selectedComponent.meaning}"</strong>
+              </p>
+            </div>
+
+            <button
+              onClick={() => speakText(selectedComponent.text)}
+              className="btn-primary"
+              style={{ padding: '0.6rem 1.2rem', background: '#a855f7' }}
+            >
+              <Volume2 size={18} /> Nghe Vế Này
+            </button>
+          </div>
+        )}
 
         {/* Component Legend Footer */}
         <div style={{

@@ -6,19 +6,19 @@
     "meaning": "Không những/Không chỉ..., mà còn...",
     "category": "Cấu trúc Tăng tiến (Progressive)",
     "memoryTrick": "💡 Mẹo nhớ: '不仅' = không chỉ dừng ở đây; '还/也' = mà còn cộng thêm điều tuyệt vời nữa!",
-    "formula": "[Chủ ngữ] + 不仅 + [Điều 1] ， 还/也 + [Điều 2 (Cùng chủ ngữ)]",
-    "explanation": "Dùng để liên kết hai vế thể hiện mức độ bổ sung tăng tiến. Nếu hai vế cùng chủ ngữ, '不仅' đứng sau chủ ngữ. Nếu khác chủ ngữ, '不仅' đứng trước chủ ngữ 1.",
+    "formula": "[Chủ ngữ] + 不仅 + [Điều 1] ， 还/也 + [Điều 2]",
+    "explanation": "Dùng để liên kết hai vế thể hiện mức độ bổ sung tăng tiến.",
     "exampleSentence": {
       "zh": "去中国旅游不仅能欣赏美丽的风景，还能体验丰富的历史文化。",
       "pinyin": "Qù Zhōngguó lǚyóu bùjǐn néng xīnshǎng měilì de fēngjǐng, hái néng tǐyàn fēngfù de lìshǐ wénhuà.",
       "vi": "Đi du lịch Trung Quốc không chỉ có thể thưởng thức phong cảnh xinh đẹp, mà còn có thể trải nghiệm văn hóa lịch sử phong phú.",
       "components": [
-        { "text": "去中国旅游", "type": "subject", "label": "Chủ ngữ/Hành động" },
-        { "text": "不仅", "type": "grammar", "label": "Cấu trúc HSK4 (Không chỉ)" },
-        { "text": "能欣赏美丽的风景", "type": "predicate", "label": "Vế 1 (Thưởng thức phong cảnh)" },
-        { "text": "，", "type": "punct", "label": "" },
-        { "text": "还", "type": "grammar", "label": "Cấu trúc HSK4 (Mà còn)" },
-        { "text": "能体验丰富的历史文化。", "type": "predicate2", "label": "Vế 2 (Trải nghiệm văn hóa)" }
+        { "text": "去中国旅游", "type": "subject", "label": "Chủ ngữ/Hành động", "pinyin": "Qù Zhōngguó lǚyóu", "meaning": "Đi du lịch Trung Quốc" },
+        { "text": "不仅", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "bùjǐn", "meaning": "Không chỉ / Không những" },
+        { "text": "能欣赏美丽的风景", "type": "predicate", "label": "Vế 1 (Bổ sung 1)", "pinyin": "néng xīnshǎng měilì de fēngjǐng", "meaning": "có thể thưởng thức phong cảnh đẹp" },
+        { "text": "，", "type": "punct", "label": "", "pinyin": "", "meaning": "" },
+        { "text": "还", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "hái", "meaning": "mà còn" },
+        { "text": "能体验丰富的历史文化。", "type": "predicate2", "label": "Vế 2 (Bổ sung 2)", "pinyin": "néng tǐyàn fēngfù de lìshǐ wénhuà", "meaning": "có thể trải nghiệm văn hóa lịch sử phong phú" }
       ]
     }
   },
@@ -30,59 +30,59 @@
     "category": "Cấu trúc Điều kiện (Conditional)",
     "memoryTrick": "💡 Mẹo nhớ: '只要' trao đi 1 điều kiện duy nhất; '就' nhận về kết quả tất yếu!",
     "formula": "只要 + [Điều kiện cần] ， 就 + [Kết quả xảy ra]",
-    "explanation": "Biểu thị điều kiện đủ. Chỉ cần đáp ứng điều kiện nêu ở vế '只要' thì kết quả ở vế '就' nhất định sẽ xảy ra.",
+    "explanation": "Chỉ cần đáp ứng điều kiện nêu ở vế '只要' thì kết quả ở vế '就' nhất định sẽ xảy ra.",
     "exampleSentence": {
       "zh": "只要我们保持积极的态度，就一定能克服面前的困难。",
       "pinyin": "Zhǐyào wǒmen bǎochí jījí de tàidu, jiù yīdìng néng kèfú miànqián de kùnnán.",
       "vi": "Chỉ cần chúng ta duy trì thái độ tích cực, thì nhất định có thể khắc phục khó khăn trước mắt.",
       "components": [
-        { "text": "只要", "type": "grammar", "label": "Cấu trúc HSK4 (Chỉ cần)" },
-        { "text": "我们保持积极的态度", "type": "subject", "label": "Vế điều kiện (Giữ thái độ tích cực)" },
-        { "text": "，", "type": "punct", "label": "" },
-        { "text": "就", "type": "grammar", "label": "Cấu trúc HSK4 (Thì)" },
-        { "text": "一定能克服面前的困难。", "type": "predicate", "label": "Vế kết quả (Khắc phục khó khăn)" }
+        { "text": "只要", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "zhǐyào", "meaning": "Chỉ cần" },
+        { "text": "我们保持积极的态度", "type": "subject", "label": "Vế điều kiện", "pinyin": "wǒmen bǎochí jījí de tàidu", "meaning": "chúng ta duy trì thái độ tích cực" },
+        { "text": "，", "type": "punct", "label": "", "pinyin": "", "meaning": "" },
+        { "text": "就", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "jiù", "meaning": "thì" },
+        { "text": "一定能克服面前的困难。", "type": "predicate", "label": "Vế kết quả", "pinyin": "yīdìng néng kèfú miànqián de kùnnán", "meaning": "nhất định có thể khắc phục khó khăn trước mắt" }
       ]
     }
   },
   {
     "id": "g3",
-    "pattern": "把字句 (Cấu trúc câu chữ 把)",
+    "pattern": "把字句 (Câu chữ 把)",
     "pinyin": "bǎ zì jù",
-    "meaning": "Tác động làm thay đổi trạng thái/vị trí của đối tượng",
+    "meaning": "Tác động làm thay đổi trạng thái/vị trí đối tượng",
     "category": "Câu Đặc Thù HSK4 (Special Sentence)",
     "memoryTrick": "💡 Mẹo nhớ: BẢ = 'Nắm lấy đối tượng X' -> 'Xử lý/Ném X đi chỗ khác'!",
-    "formula": "[Chủ ngữ] + 把 + [Tân ngữ/Đối tượng] + [Động từ] + [Thành phần bổ ngữ/Kết quả]",
-    "explanation": "Dùng để nhấn mạnh sự tác động của chủ ngữ làm thay đổi vị trí, trạng thái hoặc kết quả của tân ngữ.",
+    "formula": "[Chủ ngữ] + 把 + [Đối tượng] + [Động từ] + [Kết quả]",
+    "explanation": "Dùng để nhấn mạnh sự tác động của chủ ngữ làm thay đổi vị trí hoặc kết quả của tân ngữ.",
     "exampleSentence": {
-      "zh": "请你把这份一份重要的文件仔细整理一下。",
+      "zh": "请你把这份重要的文件仔细整理一下。",
       "pinyin": "Qǐng nǐ bǎ zhè fèn yòngxīn de wénjiàn zǐxì zhěnglǐ yīxià.",
       "vi": "Xin bạn hãy đem tài liệu quan trọng này sắp xếp cẩn thận một chút.",
       "components": [
-        { "text": "请你", "type": "subject", "label": "Chủ ngữ (Bạn)" },
-        { "text": "把", "type": "grammar", "label": "Câu chữ 把 (Tác động)" },
-        { "text": "这份重要的文件", "type": "object", "label": "Tân ngữ/Đối tượng (Tài liệu này)" },
-        { "text": "仔细整理一下。", "type": "predicate", "label": "Động từ + Kết quả (Sắp xếp cẩn thận)" }
+        { "text": "请你", "type": "subject", "label": "Chủ ngữ", "pinyin": "Qǐng nǐ", "meaning": "Xin bạn" },
+        { "text": "把", "type": "grammar", "label": "Cấu trúc Câu chữ 把", "pinyin": "bǎ", "meaning": "đem/lấy (tác động)" },
+        { "text": "这份重要的文件", "type": "object", "label": "Đối tượng/Tân ngữ", "pinyin": "zhè fèn zhòngyào de wénjiàn", "meaning": "tài liệu quan trọng này" },
+        { "text": "仔细整理一下。", "type": "predicate", "label": "Động từ + Kết quả", "pinyin": "zǐxì zhěnglǐ yīxià", "meaning": "sắp xếp cẩn thận một chút" }
       ]
     }
   },
   {
     "id": "g4",
-    "pattern": "被字句 (Cấu trúc câu bị động chữ 被)",
+    "pattern": "被字句 (Câu bị động chữ 被)",
     "pinyin": "bèi zì jù",
     "meaning": "Bị / Được (Câu bị động)",
     "category": "Câu Đặc Thù HSK4 (Passive Sentence)",
     "memoryTrick": "💡 Mẹo nhớ: Nạn nhân đứng đầu -> CHỮ 被 -> Kẻ tác động -> Hậu quả chịu đựng!",
-    "formula": "[Đối tượng chịu tác động] + 被 + [Đối tượng gây ra] + [Động từ tác động]",
-    "explanation": "Biểu thị câu bị động trong tiếng Trung, thường dùng khi đối tượng chịu tác động bị ảnh hưởng trực tiếp.",
+    "formula": "[Đối tượng chịu tác động] + 被 + [Đối tượng gây ra] + [Hành động]",
+    "explanation": "Biểu thị câu bị động trong tiếng Trung.",
     "exampleSentence": {
       "zh": "准备好的方案被总经理在会议上极力赞扬了。",
       "pinyin": "Zhǔnbèi hǎo de fāng'àn bèi zǒngjīnglǐ zài huìyì shàng jílì zànyáng le.",
       "vi": "Phương án đã chuẩn bị được tổng giám đốc khen ngợi hết lời trong cuộc họp.",
       "components": [
-        { "text": "准备好的方案", "type": "subject", "label": "Nạn nhân/Đối tượng nhận (Phương án)" },
-        { "text": "被", "type": "grammar", "label": "Câu chữ 被 (Bị/Được)" },
-        { "text": "总经理", "type": "object", "label": "Tác nhân (Tổng giám đốc)" },
-        { "text": "在会议上极力赞扬了。", "type": "predicate", "label": "Hành động (Hết lời khen ngợi)" }
+        { "text": "准备好的方案", "type": "subject", "label": "Đối tượng nhận (Nạn nhân)", "pinyin": "Zhǔnbèi hǎo de fāng'àn", "meaning": "Phương án đã chuẩn bị" },
+        { "text": "被", "type": "grammar", "label": "Cấu trúc Câu chữ 被", "pinyin": "bèi", "meaning": "được / bị (bị động)" },
+        { "text": "总经理", "type": "object", "label": "Đối tượng tác động (Tác nhân)", "pinyin": "zǒngjīnglǐ", "meaning": "tổng giám đốc" },
+        { "text": "在会议上极力赞扬了。", "type": "predicate", "label": "Hành động tác động", "pinyin": "zài huìyì shàng jílì zànyáng le", "meaning": "khen ngợi hết lời trong cuộc họp" }
       ]
     }
   },
@@ -93,19 +93,64 @@
     "meaning": "Cho dù / Dù cho..., cũng...",
     "category": "Cấu trúc Nhượng bộ (Concession)",
     "memoryTrick": "💡 Mẹo nhớ: '即使' = giả sử tình huống xấu nhất xảy ra; '也' = quyết tâm không đổi!",
-    "formula": "即使 + [Tình huống giả định/Khó khăn] ， 也 + [Kết quả/Quyết tâm giữ nguyên]",
-    "explanation": "Dùng để giả định một tình huống cực đoan hoặc khó khăn, vế sau khẳng định kết quả vẫn không bị ảnh hưởng.",
+    "formula": "即使 + [Tình huống giả định] ， 也 + [Kết quả giữ nguyên]",
+    "explanation": "Dùng để giả định một tình huống cực đoan, vế sau khẳng định kết quả vẫn không đổi.",
     "exampleSentence": {
       "zh": "即使遇到了很大的困难，我们也不能轻易放弃努力。",
       "pinyin": "Jíshǐ yù dào le hěn dà de kùnnán, wǒmen yě bùnéng qīngyì fàngqì nǔlì.",
       "vi": "Cho dù gặp phải khó khăn rất lớn, chúng ta cũng không thể dễ dàng từ bỏ nỗ lực.",
       "components": [
-        { "text": "即使", "type": "grammar", "label": "Cấu trúc HSK4 (Cho dù)" },
-        { "text": "遇到了很大的困难", "type": "subject", "label": "Tình huống xấu (Gặp khó khăn lớn)" },
-        { "text": "，", "type": "punct", "label": "" },
-        { "text": "我们", "pinyin": "wǒmen", "label": "Chủ ngữ" },
-        { "text": "也", "type": "grammar", "label": "Cấu trúc HSK4 (Cũng)" },
-        { "text": "不能轻易放弃努力。", "type": "predicate", "label": "Kết quả không đổi (Không từ bỏ)" }
+        { "text": "即使", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "jíshǐ", "meaning": "Cho dù / Dù cho" },
+        { "text": "遇到了很大的困难", "type": "subject", "label": "Giả định tình huống", "pinyin": "yù dào le hěn dà de kùnnán", "meaning": "gặp phải khó khăn rất lớn" },
+        { "text": "，", "type": "punct", "label": "", "pinyin": "", "meaning": "" },
+        { "text": "我们", "type": "subject2", "label": "Chủ ngữ", "pinyin": "wǒmen", "meaning": "chúng ta" },
+        { "text": "也", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "yě", "meaning": "cũng" },
+        { "text": "不能轻易放弃努力。", "type": "predicate", "label": "Kết quả giữ nguyên", "pinyin": "bùnéng qīngyì fàngqì nǔlì", "meaning": "không thể dễ dàng từ bỏ nỗ lực" }
+      ]
+    }
+  },
+  {
+    "id": "g6",
+    "pattern": "连……也/都……",
+    "pinyin": "lián..., yě/dōu...",
+    "meaning": "Ngay cả / Đến cả..., cũng...",
+    "category": "Cấu trúc Nhấn mạnh (Emphasis)",
+    "memoryTrick": "💡 Mẹo nhớ: '连' đưa ra ví dụ cực đoan nhất để nhấn mạnh tính toàn thể!",
+    "formula": "连 + [Ví dụ cực đoan/đặc biệt] + 也/都 + [Vế nhấn mạnh]",
+    "explanation": "Dùng để nhấn mạnh tình huống cực đoan, thể hiện tính chất bao quát.",
+    "exampleSentence": {
+      "zh": "这个简单的道理连小孩子都懂，你不可能不知道。",
+      "pinyin": "Zhège jiǎndān de dàolǐ lián xiǎoháizi dōu dǒng, nǐ bù kěnéng bù zhīdào.",
+      "vi": "Đạo lý đơn giản này ngay cả trẻ con cũng hiểu, bạn không thể nào không biết.",
+      "components": [
+        { "text": "这个简单的道理", "type": "subject", "label": "Chủ ngữ/Vấn đề", "pinyin": "Zhège jiǎndān de dàolǐ", "meaning": "Đạo lý đơn giản này" },
+        { "text": "连", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "lián", "meaning": "Ngay cả / Đến cả" },
+        { "text": "小孩子", "type": "object", "label": "Đối tượng cực đoan", "pinyin": "xiǎoháizi", "meaning": "trẻ con" },
+        { "text": "都", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "dōu", "meaning": "đều / cũng" },
+        { "text": "懂，你不可能不知道。", "type": "predicate", "label": "Vế nhấn mạnh", "pinyin": "dǒng, nǐ bù kěnéng bù zhīdào", "meaning": "hiểu, bạn không thể không biết" }
+      ]
+    }
+  },
+  {
+    "id": "g7",
+    "pattern": "无论/不管……，都/也……",
+    "pinyin": "wúlùn/bùguǎn..., dōu/yě...",
+    "meaning": "Cho dù / Bất luận..., đều...",
+    "category": "Cấu trúc Bao quát (Universal)",
+    "memoryTrick": "💡 Mẹo nhớ: 无论 = Bất kể hoàn cảnh ra sao; 都 = Kết quả 100% không đổi!",
+    "formula": "无论/不管 + [Điều kiện bất kỳ] ， 都/也 + [Kết quả nhất quán]",
+    "explanation": "Biểu thị trong bất kỳ điều kiện nào thì kết quả vẫn giữ nguyên.",
+    "exampleSentence": {
+      "zh": "无论遇到什么困难，我们都要坚持完成这个项目。",
+      "pinyin": "Wúlùn yù dào shénme kùnnán, wǒmen dōu yào jiānchí wánchéng zhège xiàngmù.",
+      "vi": "Bất luận gặp phải khó khăn gì, chúng ta đều phải kiên trì hoàn thành dự án này.",
+      "components": [
+        { "text": "无论", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "wúlùn", "meaning": "Bất luận / Cho dù" },
+        { "text": "遇到什么困难", "type": "subject", "label": "Hoàn cảnh bất kỳ", "pinyin": "yù dào shénme kùnnán", "meaning": "gặp phải khó khăn gì" },
+        { "text": "，", "type": "punct", "label": "", "pinyin": "", "meaning": "" },
+        { "text": "我们", "type": "subject2", "label": "Chủ ngữ", "pinyin": "wǒmen", "meaning": "chúng ta" },
+        { "text": "都", "type": "grammar", "label": "Cấu trúc Ngữ Pháp HSK4", "pinyin": "dōu", "meaning": "đều" },
+        { "text": "要把坚持完成这个项目。", "type": "predicate", "label": "Kết quả nhất quán", "pinyin": "yào jiānchí wánchéng zhège xiàngmù", "meaning": "phải kiên trì hoàn thành dự án này" }
       ]
     }
   }
