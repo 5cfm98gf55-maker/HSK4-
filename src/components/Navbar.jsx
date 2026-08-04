@@ -1,8 +1,5 @@
 import React from 'react';
-import { Mic, BookOpen, MessageSquare, Puzzle, Sparkles, Bot, Volume2, CheckCircle2 } from './Icons';
-
-
-
+import { Sparkles, BookOpen, MessageSquare, CheckCircle2 } from './Icons';
 
 export default function Navbar({ currentTab, setCurrentTab, totalItems, masteredCount }) {
   return (
@@ -53,16 +50,7 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
             style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <Sparkles size={18} />
-            <span>Luyện Nghe & AI Chấm Điểm</span>
-          </button>
-
-          <button
-            onClick={() => setCurrentTab('chatbot')}
-            className={currentTab === 'chatbot' ? 'btn-primary' : 'btn-secondary'}
-            style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
-          >
-            <Volume2 size={18} />
-            <span>🤖 AI Speaking Partner</span>
+            <span>✨ Luyện Nghe & AI Chấm Điểm</span>
           </button>
 
           <button
@@ -89,7 +77,7 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
             style={{ fontSize: '0.85rem', whiteSpace: 'nowrap' }}
           >
             <BookOpen size={18} />
-            <span>Kho 981 Cụm Từ</span>
+            <span>📖 Kho 981 Cụm Từ</span>
           </button>
 
           <button
@@ -110,7 +98,6 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
             <span>🧩 Ghép Cụm Từ</span>
           </button>
         </div>
-
 
         {/* User Progress Stats */}
         <div style={{
