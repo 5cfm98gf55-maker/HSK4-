@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mic, BookOpen, MessageSquare, Puzzle, Sparkles, Bot } from './Icons';
+import { Mic, BookOpen, MessageSquare, Puzzle, Sparkles, Bot, Volume2, CheckCircle2 } from './Icons';
+
 
 
 
