@@ -536,39 +536,58 @@ export default function ShadowingLab({
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc' }}>
                 🎯 Kết Quả Đánh Giá Phát Âm AI:
               </h3>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: speechResult.overallScore >= 80 ? '#10b981' : '#f59e0b' }}>
-                {speechResult.overallScore} / 100 Điểm
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: (speechResult.totalScore || 0) >= 75 ? '#10b981' : '#f59e0b' }}>
+                {speechResult.totalScore || 0} / 100 Điểm
               </div>
             </div>
 
             <div style={{ fontSize: '0.95rem', color: '#cbd5e1', marginBottom: '0.5rem' }}>
-              {speechResult.feedback}
+              {speechResult.feedbackMsg}
+            </div>
+
+            {/* Sub Score Breakdown Badges */}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <span style={{ background: 'rgba(139, 92, 246, 0.2)', color: '#c084fc', padding: '0.2rem 0.6rem', borderRadius: '8px', fontSize: '0.8rem' }}>
+                Chính xác: {speechResult.accuracyScore}%
+              </span>
+              <span style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#6ee7b7', padding: '0.2rem 0.6rem', borderRadius: '8px', fontSize: '0.8rem' }}>
+                Đầy đủ: {speechResult.completenessScore}%
+              </span>
+              <span style={{ background: 'rgba(59, 130, 246, 0.2)', color: '#93c5fd', padding: '0.2rem 0.6rem', borderRadius: '8px', fontSize: '0.8rem' }}>
+                Lưu khoát: {speechResult.fluencyScore}%
+              </span>
             </div>
 
             {/* Character Match Breakdown */}
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '1rem', borderRadius: '12px', marginTop: '0.75rem' }}>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Phân tích từng chữ Hán:</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
-                {speechResult.characterBreakdown.map((charObj, idx) => (
-                  <span
-                    key={idx}
-                    className="zh-text"
-                    style={{
-                      fontSize: '1.3rem',
-                      padding: '0.2rem 0.4rem',
-                      borderRadius: '6px',
-                      background: charObj.matched ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)',
-                      color: charObj.matched ? '#6ee7b7' : '#fca5a5',
-                      border: `1px solid ${charObj.matched ? '#10b981' : '#ef4444'}`
-                    }}
-                  >
-                    {charObj.char}
-                  </span>
-                ))}
+            {speechResult.characterDetails && speechResult.characterDetails.length > 0 && (
+              <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '1rem', borderRadius: '12px', marginTop: '0.75rem' }}>
+                <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Phân tích từng chữ Hán:</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+                  {speechResult.characterDetails.map((charObj, idx) => {
+                    const isMatched = charObj.status === 'correct';
+                    return (
+                      <span
+                        key={idx}
+                        className="zh-text"
+                        style={{
+                          fontSize: '1.3rem',
+                          padding: '0.2rem 0.4rem',
+                          borderRadius: '6px',
+                          background: isMatched ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)',
+                          color: isMatched ? '#6ee7b7' : '#fca5a5',
+                          border: `1px solid ${isMatched ? '#10b981' : '#ef4444'}`
+                        }}
+                      >
+                        {charObj.char}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )}
+
 
         {/* Bottom Navigation Buttons */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
