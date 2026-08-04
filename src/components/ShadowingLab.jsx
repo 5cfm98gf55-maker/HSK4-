@@ -172,8 +172,9 @@ export default function ShadowingLab({
       recognitionRef.current.stop();
       setIsRecording(false);
       const userSpoken = accumulatedRef.current || transcript;
+      const targetSentence = currentItem.example || currentItem.exampleZh || currentItem.word;
       if (userSpoken.trim() && currentItem) {
-        const evalRes = evaluateSpeech(currentItem.exampleZh || currentItem.word, userSpoken);
+        const evalRes = evaluateSpeech(targetSentence, userSpoken);
         setSpeechResult(evalRes);
       }
     } else {
@@ -204,6 +205,10 @@ export default function ShadowingLab({
 
   const unmasteredCount = allData ? allData.length - (masteredSet ? masteredSet.size : 0) : 0;
   const masteredCount = masteredSet ? masteredSet.size : 0;
+
+  const exampleChinese = currentItem ? (currentItem.example || currentItem.exampleZh || '') : '';
+  const exampleTranslation = currentItem ? (currentItem.exampleMeaning || currentItem.exampleVi || '') : '';
+  const exampleChunks = currentItem ? (currentItem.chunks || currentItem.phrasalChunks || []) : [];
 
   return (
     <div className="animate-fade-in" style={{ maxWidth: '900px', margin: '2rem auto', padding: '0 1rem' }}>
@@ -449,24 +454,24 @@ export default function ShadowingLab({
           marginBottom: '2rem'
         }}>
           <div style={{ fontSize: '0.8rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            💬 Câu Ví Dụ Ngữ Cảnh Giao Tiếp:
+            💬 CÂU VÍ DỤ NGỮ CẢNH GIAO TIẾP:
           </div>
 
           <div className="zh-text" style={{ fontSize: '1.5rem', color: '#ffffff', fontWeight: 700, marginBottom: '0.3rem' }}>
-            {currentItem ? currentItem.exampleZh : ''}
+            {exampleChinese}
           </div>
           <div style={{ fontSize: '1rem', color: '#a5b4fc', marginBottom: '0.3rem' }}>
             {currentItem ? currentItem.examplePinyin : ''}
           </div>
           <div style={{ fontSize: '1rem', color: '#cbd5e1', fontStyle: 'italic', marginBottom: '1rem' }}>
-            "{currentItem ? currentItem.exampleVi : ''}"
+            "{exampleTranslation}"
           </div>
 
           {/* Phrasal Chunk Badges */}
-          {currentItem && currentItem.phrasalChunks && currentItem.phrasalChunks.length > 0 && (
+          {exampleChunks && exampleChunks.length > 0 && (
             <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span style={{ fontSize: '0.75rem', color: '#818cf8' }}>🧩 Cụm từ thành phần:</span>
-              {currentItem.phrasalChunks.map((chunk, cIdx) => (
+              {exampleChunks.map((chunk, cIdx) => (
                 <button
                   key={cIdx}
                   onClick={() => speakText(chunk)}
@@ -490,7 +495,7 @@ export default function ShadowingLab({
         {/* Audio Recording & Speech Evaluator Section */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
           <button
-            onClick={() => speakText(currentItem ? currentItem.exampleZh : '')}
+            onClick={() => speakText(exampleChinese || (currentItem ? currentItem.word : ''))}
             className="btn-secondary"
             style={{ padding: '0.75rem 1.25rem' }}
           >
