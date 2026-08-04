@@ -1,0 +1,150 @@
+[
+  {
+    "id": "art-1",
+    "titleZh": "现代人的工作与生活平衡",
+    "titlePinyin": "Xiàndài rén de gōngzuò yǔ shēnghuó pínghéng",
+    "titleVi": "Cân bằng Công việc và Cuộc sống của Con người Hiện đại",
+    "category": "Công sở & Đời sống",
+    "summaryVi": "Bài đọc bàn về cách sắp xếp thời gian hợp lý, giải tỏa áp lực công việc và duy trì sức khỏe tinh thần.",
+    "sentences": [
+      {
+        "id": "s1",
+        "zh": "在现代社会中，很多人觉得工作压力很大，很难安排好自己的时间。",
+        "pinyin": "Zài xiàndài shèhuì zhōng, hěnduō rén juéde gōngzuò yālì hěn dà, hěn nán ānpái hǎo zìjǐ de shíjiān.",
+        "vi": "Trong xã hội hiện đại, rất nhiều người cảm thấy áp lực công việc rất lớn, rất khó để sắp xếp tốt thời gian của bản thân.",
+        "tokens": [
+          { "word": "在", "pinyin": "zài", "meaning": "ở, trong" },
+          { "word": "现代", "pinyin": "xiàndài", "meaning": "hiện đại", "isHsk4": true },
+          { "word": "社会", "pinyin": "shèhuì", "meaning": "xã hội", "isHsk4": true },
+          { "word": "中", "pinyin": "zhōng", "meaning": "trong" },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "很多人", "pinyin": "hěnduō rén", "meaning": "nhiều người" },
+          { "word": "觉得", "pinyin": "juéde", "meaning": "cảm thấy" },
+          { "word": "工作", "pinyin": "gōngzuò", "meaning": "công việc" },
+          { "word": "压力", "pinyin": "yālì", "meaning": "áp lực", "isHsk4": true },
+          { "word": "很大", "pinyin": "hěn dà", "meaning": "rất lớn" },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "很难", "pinyin": "hěn nán", "meaning": "rất khó" },
+          { "word": "安排", "pinyin": "ānpái", "meaning": "sắp xếp", "isHsk4": true },
+          { "word": "好", "pinyin": "hǎo", "meaning": "tốt" },
+          { "word": "自己", "pinyin": "zìjǐ", "meaning": "bản thân" },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "时间", "pinyin": "shíjiān", "meaning": "thời gian" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      },
+      {
+        "id": "s2",
+        "zh": "为了解决这个问题，我们需要学会合理的沟通与互相支持。",
+        "pinyin": "Wèile jiějué zhège wèntí, wǒmen xūyào xuéhuì hélǐ de gōutōng yǔ hùxiāng zhīchí.",
+        "vi": "Để giải quyết vấn đề này, chúng ta cần học cách giao tiếp hợp lý và hỗ trợ lẫn nhau.",
+        "tokens": [
+          { "word": "为了", "pinyin": "wèile", "meaning": "để", "isHsk4": true },
+          { "word": "解决", "pinyin": "jiějué", "meaning": "giải quyết", "isHsk4": true },
+          { "word": "这个", "pinyin": "zhège", "meaning": "này" },
+          { "word": "问题", "pinyin": "wèntí", "meaning": "vấn đề" },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "我们", "pinyin": "wǒmen", "meaning": "chúng ta" },
+          { "word": "需要", "pinyin": "xūyào", "meaning": "cần" },
+          { "word": "学会", "pinyin": "xuéhuì", "meaning": "học được" },
+          { "word": "合理", "pinyin": "hélǐ", "meaning": "hợp lý", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "沟通", "pinyin": "gōutōng", "meaning": "giao tiếp", "isHsk4": true },
+          { "word": "与", "pinyin": "yǔ", "meaning": "và", "isHsk4": true },
+          { "word": "互相", "pinyin": "hùxiāng", "meaning": "lẫn nhau", "isHsk4": true },
+          { "word": "支持", "pinyin": "zhīchí", "meaning": "ủng hộ, hỗ trợ", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      },
+      {
+        "id": "s3",
+        "zh": "只要保持积极的态度，就一定能获得成功的喜悦。",
+        "pinyin": "Zhǐyào bǎochí jījí de tàidu, jiù yīdìng néng huòdé chénggōng de xǐyuè.",
+        "vi": "Chỉ cần giữ thái độ tích cực, thì nhất định có thể gặt hái được niềm vui của sự thành công.",
+        "tokens": [
+          { "word": "只要", "pinyin": "zhǐyào", "meaning": "chỉ cần", "isHsk4": true },
+          { "word": "保持", "pinyin": "bǎochí", "meaning": "duy trì, giữ", "isHsk4": true },
+          { "word": "积极", "pinyin": "jījí", "meaning": "tích cực", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "态度", "pinyin": "tàidu", "meaning": "thái độ", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "就", "pinyin": "jiù", "meaning": "thì" },
+          { "word": "一定", "pinyin": "yīdìng", "meaning": "nhất định" },
+          { "word": "能", "pinyin": "néng", "meaning": "có thể" },
+          { "word": "获得", "pinyin": "huòdé", "meaning": "gặt hái, đạt được", "isHsk4": true },
+          { "word": "成功", "pinyin": "chénggōng", "meaning": "thành công", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "喜悦", "pinyin": "xǐyuè", "meaning": "niềm vui", "isHsk4": true },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "安排", "pinyin": "ānpái", "meaning": "Sắp xếp", "collocation": "安排时间 (Sắp xếp thời gian), 听从安排 (Nghe theo sắp xếp)" },
+      { "word": "解决", "pinyin": "jiějué", "meaning": "Giải quyết", "collocation": "解决问题 (Giải quyết vấn đề), 解决困难 (Giải quyết khó khăn)" },
+      { "word": "沟通", "pinyin": "gōutōng", "meaning": "Giao tiếp", "collocation": "加强沟通 (Tăng cường giao tiếp), 沟通技巧 (Kỹ năng giao tiếp)" },
+      { "word": "保持", "pinyin": "bǎochí", "meaning": "Duy trì", "collocation": "保持联系 (Giữ liên lạc), 保持冷静 (Giữ bình tĩnh)" }
+    ]
+  },
+  {
+    "id": "art-2",
+    "titleZh": "中国的旅游与文化体验",
+    "titlePinyin": "Zhōngguó de lǚyóu yǔ wénhuà tǐyàn",
+    "titleVi": "Trải nghiệm Du lịch và Văn hóa Trung Quốc",
+    "category": "Du lịch & Văn hóa",
+    "summaryVi": "Bài viết giới thiệu phong cảnh thiên nhiên tuyệt đẹp và tính cách hiếu khách của người dân địa phương.",
+    "sentences": [
+      {
+        "id": "s1",
+        "zh": "去中国旅游不仅能欣赏美丽的风景，还能体验丰富的历史文化。",
+        "pinyin": "Qù Zhōngguó lǚyóu bùjǐn néng xīnshǎng měilì de fēngjǐng, hái néng tǐyàn fēngfù de lìshǐ wénhuà.",
+        "vi": "Đi du lịch Trung Quốc không chỉ có thể thưởng thức phong cảnh xinh đẹp, mà còn có thể trải nghiệm văn hóa lịch sử phong phú.",
+        "tokens": [
+          { "word": "去", "pinyin": "qù", "meaning": "đi" },
+          { "word": "中国", "pinyin": "Zhōngguó", "meaning": "Trung Quốc" },
+          { "word": "旅游", "pinyin": "lǚyóu", "meaning": "du lịch" },
+          { "word": "不仅", "pinyin": "bùjǐn", "meaning": "không chỉ", "isHsk4": true },
+          { "word": "能", "pinyin": "néng", "meaning": "có thể" },
+          { "word": "欣赏", "pinyin": "xīnshǎng", "meaning": "thưởng thức", "isHsk4": true },
+          { "word": "美丽", "pinyin": "měilì", "meaning": "xinh đẹp", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "风景", "pinyin": "fēngjǐng", "meaning": "phong cảnh", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "还", "pinyin": "hái", "meaning": "còn" },
+          { "word": "能", "pinyin": "néng", "meaning": "có thể" },
+          { "word": "体验", "pinyin": "tǐyàn", "meaning": "trải nghiệm", "isHsk4": true },
+          { "word": "丰富", "pinyin": "fēngfù", "meaning": "phong phú", "isHsk4": true },
+          { "word": "的", "pinyin": "de", "meaning": "của" },
+          { "word": "历史", "pinyin": "lìshǐ", "meaning": "lịch sử" },
+          { "word": "文化", "pinyin": "wénhuà", "meaning": "văn hóa" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      },
+      {
+        "id": "s2",
+        "zh": "当地居民非常热情，总是愿意向游客提供帮助。",
+        "pinyin": "Dāngdì jūmín fēicháng rèqíng, zǒngshì yuànyì xiàng yóukè tígōng bāngzhù.",
+        "vi": "Cư dân địa phương rất nhiệt tình, luôn sẵn lòng cung cấp sự giúp đỡ cho du khách.",
+        "tokens": [
+          { "word": "当地", "pinyin": "dāngdì", "meaning": "địa phương", "isHsk4": true },
+          { "word": "居民", "pinyin": "jūmín", "meaning": "cư dân" },
+          { "word": "非常", "pinyin": "fēicháng", "meaning": "rất" },
+          { "word": "热情", "pinyin": "rèqíng", "meaning": "nhiệt tình", "isHsk4": true },
+          { "word": "，", "pinyin": "", "meaning": "" },
+          { "word": "总是", "pinyin": "zǒngshì", "meaning": "luôn luôn" },
+          { "word": "愿意", "pinyin": "yuànyì", "meaning": "bằng lòng, sẵn lòng", "isHsk4": true },
+          { "word": "向", "pinyin": "xiàng", "meaning": "về phía, hướng tới", "isHsk4": true },
+          { "word": "游客", "pinyin": "yóukè", "meaning": "du khách" },
+          { "word": "提供", "pinyin": "tígōng", "meaning": "cung cấp", "isHsk4": true },
+          { "word": "帮助", "pinyin": "bāngzhù", "meaning": "giúp đỡ" },
+          { "word": "。", "pinyin": "", "meaning": "" }
+        ]
+      }
+    ],
+    "vocabularyNotes": [
+      { "word": "欣赏", "pinyin": "xīnshǎng", "meaning": "Thưởng thức", "collocation": "欣赏音乐 (Thưởng thức âm nhạc), 欣赏风景 (Thưởng thức phong cảnh)" },
+      { "word": "提供", "pinyin": "tígōng", "meaning": "Cung cấp", "collocation": "提供帮助 (Cung cấp sự giúp đỡ), 提供服务 (Cung cấp dịch vụ)" },
+      { "word": "热情", "pinyin": "rèqíng", "meaning": "Nhiệt tình", "collocation": "热情招待 (Đón tiếp nhiệt tình), 充满热情 (Tràn đầy nhiệt huyết)" }
+    ]
+  }
+]

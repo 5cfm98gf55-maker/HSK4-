@@ -1,11 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
-TITLE GitHub & Deployment Sub-Agent
+TITLE GitHub and Deployment Sub-Agent
 
 echo ===================================================
 echo   GitHub and Deployment Sub-Agent - HSK4 Master
 echo ===================================================
-
 
 :: Ensure Git is in PATH
 set "PATH=%PATH%;C:\Users\HP\AppData\Local\GitHubDesktop\app-3.6.2\resources\app\git\cmd"
@@ -32,13 +31,16 @@ git remote add origin https://github.com/5cfm98gf55-maker/HSK4-.git
 
 echo [INFO] Step 4: Staging and committing changes...
 git add .
-git commit -m "feat: update HSK4 Phrase Master web app"
+git commit -m "feat: update HSK4 Phrase Master web app" >nul 2>nul
 
 echo [INFO] Step 5: Pushing source code to main branch...
 git push -u origin main
 
-echo [INFO] Step 6: Deploying live site to GitHub Pages...
-call npm.cmd run deploy
+echo [INFO] Step 6: Cleaning gh-pages cache...
+if exist "node_modules\.cache\gh-pages" rmdir /s /q "node_modules\.cache\gh-pages" >nul 2>nul
+
+echo [INFO] Step 7: Deploying live site to GitHub Pages...
+call npx.cmd gh-pages -d dist
 
 echo ===================================================
 echo [SUCCESS] Deploy process completed successfully!

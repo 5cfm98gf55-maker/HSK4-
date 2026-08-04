@@ -5,8 +5,10 @@ import PhraseCardBrowser from './components/PhraseCardBrowser';
 import DialogueRoleplay from './components/DialogueRoleplay';
 import SentenceBuilder from './components/SentenceBuilder';
 import AIChatbot from './components/AIChatbot';
+import ArticleReader from './components/ArticleReader';
 
 import hsk4Data from './data/hsk4_data.json';
+
 
 
 export default function App() {
@@ -94,6 +96,10 @@ export default function App() {
           />
         )}
 
+        {currentTab === 'articles' && (
+          <ArticleReader />
+        )}
+
         {currentTab === 'library' && (
           <PhraseCardBrowser
             data={hsk4Data}
@@ -102,6 +108,7 @@ export default function App() {
             onMasterToggle={handleMasterToggle}
           />
         )}
+
 
 
         {currentTab === 'dialogue' && (

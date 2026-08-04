@@ -20,6 +20,31 @@ export default function ShadowingLab({ currentItem, onNext, onPrev, onRandom, to
   const recognitionRef = useRef(null);
   const accumulatedRef = useRef('');
 
+  // Mobile Touch Swipe Gesture Refs
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const onTouchStart = (e) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minDistance = 50;
+    if (distance > minDistance) {
+      onNext(); // Swipe Left -> Next
+    } else if (distance < -minDistance) {
+      onPrev(); // Swipe Right -> Prev
+    }
+  };
+
+
   // Load and filter native Chinese voices from browser
   useEffect(() => {
     const loadVoices = () => {
@@ -272,7 +297,18 @@ export default function ShadowingLab({ currentItem, onNext, onPrev, onRandom, to
       )}
 
       {/* Main Card */}
-      <div className="glass-card" style={{ padding: '2.5rem', textAlign: 'center', position: 'relative' }}>
+      <div
+        className="glass-card"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{ padding: '2.5rem', textAlign: 'center', position: 'relative' }}
+      >
+        {/* Mobile Touch Swipe Hint */}
+        <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.5rem', userSelect: 'none' }}>
+          👈 Vuốt màn hình trái / phải để đổi từ nhanh trên điện thoại 👉
+        </div>
+
         
         {/* Mastered Toggle */}
         <button

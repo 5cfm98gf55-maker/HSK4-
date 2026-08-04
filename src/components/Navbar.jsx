@@ -65,6 +65,15 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
           </button>
 
           <button
+            onClick={() => setCurrentTab('articles')}
+            className={currentTab === 'articles' ? 'btn-primary' : 'btn-secondary'}
+            style={{ fontSize: '0.875rem' }}
+          >
+            <BookOpen size={18} />
+            <span>📰 Bài Đọc & Báo HSK4</span>
+          </button>
+
+          <button
             onClick={() => setCurrentTab('library')}
             className={currentTab === 'library' ? 'btn-primary' : 'btn-secondary'}
             style={{ fontSize: '0.875rem' }}
@@ -72,6 +81,7 @@ export default function Navbar({ currentTab, setCurrentTab, totalItems, mastered
             <BookOpen size={18} />
             <span>Kho 981 Cụm Từ</span>
           </button>
+
 
 
           <button
