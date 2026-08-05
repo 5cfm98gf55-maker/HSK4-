@@ -22,7 +22,7 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState('shadowing');
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // AUTH STATE: Default to null so new visitors are NOT logged in as Admin by default!
+  // AUTH STATE: Read from localStorage or null
   const [currentUser, setCurrentUser] = useState(() => {
     try {
       const saved = localStorage.getItem('hsk4_current_user');
@@ -32,8 +32,24 @@ export default function App() {
     }
   });
 
-  const [authModalOpen, setAuthModalOpen] = useState(false);
+  // Automatically open Auth Modal if user is NOT logged in!
+  const [authModalOpen, setAuthModalOpen] = useState(() => {
+    try {
+      return !localStorage.getItem('hsk4_current_user');
+    } catch (e) {
+      return true;
+    }
+  });
+
   const [authModalMode, setAuthModalMode] = useState('login'); // 'login', 'register', 'change_password'
+
+  // Open Auth Modal whenever currentUser becomes null (e.g. after logout)
+  useEffect(() => {
+    if (!currentUser) {
+      setAuthModalOpen(true);
+      setAuthModalMode('login');
+    }
+  }, [currentUser]);
 
   // PENDING & APPROVED USERS STATE
   const [pendingUsers, setPendingUsers] = useState(() => {
@@ -110,6 +126,7 @@ export default function App() {
     if (emailInput.toLowerCase() === DEFAULT_ADMIN.email.toLowerCase() && passwordInput === DEFAULT_ADMIN.password) {
       const adminObj = DEFAULT_ADMIN;
       setCurrentUser(adminObj);
+      setAuthModalOpen(false);
       return { success: true };
     }
 
@@ -129,6 +146,7 @@ export default function App() {
 
     const userObj = { ...foundUser, role: 'student' };
     setCurrentUser(userObj);
+    setAuthModalOpen(false);
     return { success: true };
   };
 
@@ -196,8 +214,11 @@ export default function App() {
 
   // LOGOUT HANDLER
   const handleLogout = () => {
+    localStorage.removeItem('hsk4_current_user');
     setCurrentUser(null);
     setCurrentTab('shadowing');
+    setAuthModalMode('login');
+    setAuthModalOpen(true);
   };
 
   const handleMasterToggle = (id) => {
