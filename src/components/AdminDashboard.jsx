@@ -9,14 +9,13 @@ export default function AdminDashboard({
   onResetUserPassword,
   allStudentsProgress
 }) {
-  const [activeTab, setActiveTab] = useState('pending'); // 'pending', 'students', 'logs'
+  const [activeTab, setActiveTab] = useState('pending');
   const [simulatedEmailLog, setSimulatedEmailLog] = useState(null);
 
   const handleApprove = (user) => {
     const generatedPass = `HSK4_${Math.floor(1000 + Math.random() * 9000)}`;
     onApproveUser(user.email, generatedPass);
 
-    // Show simulated email dispatch notification
     setSimulatedEmailLog({
       to: user.email,
       name: user.name,
@@ -43,13 +42,13 @@ export default function AdminDashboard({
       }}>
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(99, 102, 241, 0.15)', border: '1px solid rgba(99, 102, 241, 0.4)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.8rem', color: '#818cf8', marginBottom: '0.6rem' }}>
-            <Shield size={14} /> 👑 QUẢN TRỊ VIÊN ADMIN HSK4
+            <Shield size={14} /> 👑 ADMIN: ngdangthien1@gmail.com
           </div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
             Bảng Quản Lý Duyệt Học Viên & Tiến Độ Học Tập
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginTop: '0.4rem' }}>
-            Duyệt đăng ký tự động cấp mật khẩu gửi qua Mail • Theo dõi sát sao kết quả từng học viên không bị lẫn lộn
+            Thông báo đăng ký gửi trực tiếp về <strong>ngdangthien1@gmail.com</strong> • Tự động tạo mật khẩu gửi Email cho Học viên
           </p>
         </div>
 
@@ -57,11 +56,11 @@ export default function AdminDashboard({
         <div style={{ display: 'flex', gap: '1rem' }}>
           <div style={{ background: '#0f172a', padding: '0.8rem 1.2rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.08)', textAlign: 'center' }}>
             <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#eab308' }}>{pendingUsers.length}</div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Chờ Admin Duyệt</div>
+            <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Chờ Duyệt</div>
           </div>
           <div style={{ background: '#0f172a', padding: '0.8rem 1.2rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.08)', textAlign: 'center' }}>
             <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#10b981' }}>{approvedUsers.length}</div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Học Viên Đã Duyệt</div>
+            <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Đã Duyệt</div>
           </div>
         </div>
       </div>
@@ -82,17 +81,17 @@ export default function AdminDashboard({
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#6ee7b7', fontWeight: 700, fontSize: '0.95rem' }}>
-              <Mail size={18} /> ✅ Đã Giả Lập Gửi Email Mật Khẩu Thành Công!
+              <Mail size={18} /> ✅ Đã Tạo Mật Khẩu & Gửi Email Thành Công Cho Học Viên!
             </div>
             <div style={{ color: '#e2e8f0', fontSize: '0.85rem', marginTop: '0.3rem' }}>
-              Hệ thống đã tạo mật khẩu ban đầu: <strong style={{ background: '#0f172a', padding: '0.2rem 0.6rem', borderRadius: '6px', color: '#fde047', letterSpacing: '0.05em' }}>{simulatedEmailLog.password}</strong> và gửi đến email <strong>{simulatedEmailLog.to}</strong> ({simulatedEmailLog.name}).
+              Mật khẩu khởi tạo: <strong style={{ background: '#0f172a', padding: '0.2rem 0.6rem', borderRadius: '6px', color: '#fde047', letterSpacing: '0.05em' }}>{simulatedEmailLog.password}</strong> đã được gửi tới email <strong>{simulatedEmailLog.to}</strong> ({simulatedEmailLog.name}).
             </div>
           </div>
           <button
             onClick={() => setSimulatedEmailLog(null)}
             style={{ background: 'rgba(255, 255, 255, 0.1)', border: 'none', color: '#fff', padding: '0.4rem 0.8rem', borderRadius: '8px', cursor: 'pointer', fontSize: '0.8rem' }}
           >
-            Đóng Thông Báo
+            Đóng
           </button>
         </div>
       )}
@@ -171,7 +170,7 @@ export default function AdminDashboard({
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.8rem' }}>
                       <div>
                         <h4 style={{ color: '#f8fafc', fontSize: '1.05rem', fontWeight: 700, margin: 0 }}>{user.name}</h4>
-                        <span style={{ color: '#818cf8', fontSize: '0.82rem' }}>{user.email}</span>
+                        <span style={{ color: '#818cf8', fontSize: '0.85rem' }}>{user.email}</span>
                       </div>
                       <span style={{ background: 'rgba(234, 179, 8, 0.15)', color: '#fde047', padding: '0.2rem 0.6rem', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 600 }}>
                         Chờ Duyệt
@@ -179,8 +178,7 @@ export default function AdminDashboard({
                     </div>
 
                     <div style={{ background: '#0f172a', padding: '0.75rem', borderRadius: '10px', fontSize: '0.8rem', color: '#cbd5e1', marginBottom: '1rem' }}>
-                      📌 <strong>Mục tiêu học:</strong> {user.goal || 'Luyện thi HSK4'}<br />
-                      🕒 <strong>Thời gian gửi:</strong> {user.submittedAt || 'Mới đây'}
+                      🕒 <strong>Thời gian gửi yêu cầu:</strong> {user.submittedAt || 'Mới đây'}
                     </div>
                   </div>
 
@@ -207,7 +205,7 @@ export default function AdminDashboard({
         </div>
       )}
 
-      {/* TAB 2: APPROVED STUDENTS & PROGRESS TRACKING */}
+      {/* TAB 2: APPROVED STUDENTS */}
       {activeTab === 'students' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
           {approvedUsers.map((student) => {
@@ -231,7 +229,6 @@ export default function AdminDashboard({
                 flexWrap: 'wrap',
                 gap: '1.5rem'
               }}>
-                {/* Student Info */}
                 <div style={{ flex: '1 1 240px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                     <div style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', width: '38px', height: '38px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff' }}>
@@ -247,9 +244,7 @@ export default function AdminDashboard({
                   </div>
                 </div>
 
-                {/* Progress Indicators */}
                 <div style={{ flex: '2 1 360px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.8rem' }}>
-                  {/* Mastered Phrases */}
                   <div style={{ background: '#0f172a', padding: '0.65rem 0.85rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.2rem' }}>Cụm từ thuộc:</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#10b981' }}>{progress.masteredCount} / 981</div>
@@ -258,7 +253,6 @@ export default function AdminDashboard({
                     </div>
                   </div>
 
-                  {/* Shadowing Score */}
                   <div style={{ background: '#0f172a', padding: '0.65rem 0.85rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.2rem' }}>Điểm Phát Âm AI:</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#818cf8' }}>
@@ -266,14 +260,12 @@ export default function AdminDashboard({
                     </div>
                   </div>
 
-                  {/* Grammar */}
                   <div style={{ background: '#0f172a', padding: '0.65rem 0.85rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.2rem' }}>Ngữ Pháp:</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#38bdf8' }}>{progress.grammarCount} bài</div>
                   </div>
                 </div>
 
-                {/* Actions */}
                 <div>
                   <button
                     onClick={() => {

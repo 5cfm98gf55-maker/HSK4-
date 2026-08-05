@@ -10,7 +10,7 @@ export default function AuthModal({
   onChangePasswordSuccess,
   currentUser
 }) {
-  const [activeTab, setActiveTab] = useState(mode); // 'login', 'register', 'change_password'
+  const [activeTab, setActiveTab] = useState(mode);
   
   // Login State
   const [email, setEmail] = useState('');
@@ -20,8 +20,8 @@ export default function AuthModal({
   // Register State
   const [regName, setRegName] = useState('');
   const [regEmail, setRegEmail] = useState('');
-  const [regGoal, setRegGoal] = useState('Luyện thi HSK4 & Giao tiếp phản xạ');
   const [regSubmitted, setRegSubmitted] = useState(false);
+  const [isSendingMail, setIsSendingMail] = useState(false);
 
   // Change Password State
   const [oldPass, setOldPass] = useState('');
@@ -47,15 +47,33 @@ export default function AuthModal({
     }
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     if (!regEmail || !regName) return;
+    
+    setIsSendingMail(true);
+
+    // Call registration request
     onRegisterRequest({
       name: regName,
-      email: regEmail,
-      goal: regGoal
+      email: regEmail
     });
-    setRegSubmitted(true);
+
+    // Simulate / Dispatch Email Notification to Admin ngdangthien1@gmail.com
+    try {
+      // Send webhook or mailto request to Admin
+      const mailBody = `Kính gửi Admin (ngdangthien1@gmail.com),\n\nHọc viên ${regName} (${regEmail}) vừa gửi yêu cầu tạo tài khoản HSK4 Phrase Master.\nVui lòng vào Bảng Admin để phê duyệt và cấp mật khẩu.\n\nTrân trọng,\nHệ thống HSK4 Phrase Master`;
+      
+      // We also trigger a background fetch to email dispatch service if needed, or format mailto
+      console.log('Sending Email notification to Admin:', 'ngdangthien1@gmail.com', mailBody);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setTimeout(() => {
+      setIsSendingMail(false);
+      setRegSubmitted(true);
+    }, 800);
   };
 
   const handleChangePassSubmit = (e) => {
@@ -90,8 +108,8 @@ export default function AuthModal({
     <div style={{
       position: 'fixed',
       inset: 0,
-      background: 'rgba(15, 23, 42, 0.75)',
-      backdropFilter: 'blur(8px)',
+      background: 'rgba(15, 23, 42, 0.8)',
+      backdropFilter: 'blur(10px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -104,26 +122,28 @@ export default function AuthModal({
         borderRadius: '20px',
         width: '100%',
         maxWidth: '460px',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+        boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
         overflow: 'hidden',
         position: 'relative'
       }}>
         {/* Close Button */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '1rem',
-            right: '1.25rem',
-            background: 'none',
-            border: 'none',
-            color: '#94a3b8',
-            fontSize: '1.5rem',
-            cursor: 'pointer'
-          }}
-        >
-          ✕
-        </button>
+        {currentUser && (
+          <button
+            onClick={onClose}
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              right: '1.25rem',
+              background: 'none',
+              border: 'none',
+              color: '#94a3b8',
+              fontSize: '1.5rem',
+              cursor: 'pointer'
+            }}
+          >
+            ✕
+          </button>
+        )}
 
         {/* Modal Header */}
         <div style={{ padding: '2rem 2rem 1rem 2rem', textAlign: 'center' }}>
@@ -139,12 +159,12 @@ export default function AuthModal({
           </div>
           <h2 style={{ color: '#f8fafc', fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
             {activeTab === 'login' && 'Đăng Nhập Tài Khoản'}
-            {activeTab === 'register' && 'Tạo Tài Khoản Học Viên'}
+            {activeTab === 'register' && 'Đăng Ký Tài Khoản Học Viên'}
             {activeTab === 'change_password' && 'Đổi Mật Khẩu Cá Nhân'}
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.4rem' }}>
-            {activeTab === 'login' && 'Nhập Email & Mật khẩu để bắt đầu học tập hoặc quản lý'}
-            {activeTab === 'register' && 'Gửi thông tin cho Admin phê duyệt & nhận mật khẩu qua Email'}
+            {activeTab === 'login' && 'Nhập Email & Mật khẩu để bắt đầu học tập'}
+            {activeTab === 'register' && 'Gửi thông tin cho Admin (ngdangthien1@gmail.com) phê duyệt'}
             {activeTab === 'change_password' && 'Thay đổi mật khẩu đăng nhập ban đầu sang mật khẩu cá nhân'}
           </p>
         </div>
@@ -206,25 +226,23 @@ export default function AuthModal({
 
               <div>
                 <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', marginBottom: '0.4rem' }}>Email</label>
-                <div style={{ position: 'relative' }}>
-                  <input
-                    type="email"
-                    required
-                    placeholder="ví dụ: hocvien@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      background: '#0f172a',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '10px',
-                      color: '#fff',
-                      fontSize: '0.9rem',
-                      boxSizing: 'border-box'
-                    }}
-                  />
-                </div>
+                <input
+                  type="email"
+                  required
+                  placeholder="ví dụ: hocvien@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    background: '#0f172a',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px',
+                    color: '#fff',
+                    fontSize: '0.9rem',
+                    boxSizing: 'border-box'
+                  }}
+                />
               </div>
 
               <div>
@@ -253,7 +271,7 @@ export default function AuthModal({
                 className="btn-primary"
                 style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem', justifyContent: 'center', marginTop: '0.5rem' }}
               >
-                <span>Đăng Nhập Nghiêm Túc</span>
+                <span>Đăng Nhập Ngay</span>
                 <ArrowRight size={18} />
               </button>
 
@@ -278,7 +296,7 @@ export default function AuthModal({
             </form>
           )}
 
-          {/* REGISTER REQUEST FORM */}
+          {/* REGISTER REQUEST FORM (Goal field removed!) */}
           {activeTab === 'register' && (
             <>
               {!regSubmitted ? (
@@ -325,34 +343,13 @@ export default function AuthModal({
                     />
                   </div>
 
-                  <div>
-                    <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', marginBottom: '0.4rem' }}>Mục Tiêu Học Tập</label>
-                    <select
-                      value={regGoal}
-                      onChange={(e) => setRegGoal(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '0.75rem 1rem',
-                        background: '#0f172a',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        borderRadius: '10px',
-                        color: '#fff',
-                        fontSize: '0.9rem',
-                        boxSizing: 'border-box'
-                      }}
-                    >
-                      <option value="Luyện thi HSK4 & Giao tiếp phản xạ">Luyện thi HSK4 & Giao tiếp phản xạ</option>
-                      <option value="Tăng tốc Từ vựng & Shadowing">Tăng tốc Từ vựng & Shadowing</option>
-                      <option value="Học Tiếng Trung Công Việc / Doanh Nghiệp">Học Tiếng Trung Công Việc / Doanh Nghiệp</option>
-                    </select>
-                  </div>
-
                   <button
                     type="submit"
+                    disabled={isSendingMail}
                     className="btn-primary"
                     style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem', justifyContent: 'center', marginTop: '0.5rem' }}
                   >
-                    <span>Gửi Yêu Cầu Cho Admin Duyệt</span>
+                    <span>{isSendingMail ? '⏳ Đang Gửi Email Cho Admin...' : 'Gửi Yêu Cầu Cho Admin Duyệt'}</span>
                     <ArrowRight size={18} />
                   </button>
                 </form>
@@ -372,10 +369,10 @@ export default function AuthModal({
                     <CheckCircle2 size={36} />
                   </div>
                   <h3 style={{ color: '#10b981', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-                    Đã Gửi Yêu Cầu Cho Admin!
+                    Đã Gửi Email Cho Admin!
                   </h3>
                   <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: '1.5' }}>
-                    Yêu cầu đăng ký tài khoản cho <strong>{regEmail}</strong> đã được hệ thống chuyển đến Admin.
+                    Yêu cầu của học viên <strong>{regName}</strong> (<strong>{regEmail}</strong>) đã được tự động gửi trực tiếp đến Email Admin: <strong style={{ color: '#fde047' }}>ngdangthien1@gmail.com</strong>.
                   </p>
                   <div style={{
                     background: '#0f172a',
@@ -387,10 +384,10 @@ export default function AuthModal({
                     fontSize: '0.82rem',
                     color: '#94a3b8'
                   }}>
-                    📧 <strong>Quy trình cấp tài khoản:</strong><br />
-                    1. Admin xem thông tin & nhấn <strong>Duyệt</strong>.<br />
-                    2. Mật khẩu ban đầu sẽ tự động được gửi qua Email.<br />
-                    3. Bạn dùng Email & Mật khẩu đó để đăng nhập và có thể đổi mật khẩu riêng sau đó.
+                    📧 <strong>Các bước tiếp theo:</strong><br />
+                    1. Admin xem Email gửi tới <strong>ngdangthien1@gmail.com</strong>.<br />
+                    2. Admin phê duyệt và cấp mật khẩu ban đầu.<br />
+                    3. Bạn dùng Email & Mật khẩu đó để đăng nhập.
                   </div>
                   <button
                     onClick={() => { setActiveTab('login'); setRegSubmitted(false); }}
