@@ -11,7 +11,6 @@ import AuthModal from './components/AuthModal';
 
 import hsk4Data from './data/hsk4_data.json';
 
-// Default Admin Account
 const DEFAULT_ADMIN = {
   email: 'admin@hsk4.edu.vn',
   name: 'Admin Quản Trị HSK4',
@@ -23,13 +22,13 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState('shadowing');
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // AUTH STATE
+  // AUTH STATE: Default to null so new visitors are NOT logged in as Admin by default!
   const [currentUser, setCurrentUser] = useState(() => {
     try {
       const saved = localStorage.getItem('hsk4_current_user');
-      return saved ? JSON.parse(saved) : DEFAULT_ADMIN; // Default logged in as Admin for demo convenience
+      return saved ? JSON.parse(saved) : null;
     } catch (e) {
-      return DEFAULT_ADMIN;
+      return null;
     }
   });
 
@@ -108,7 +107,7 @@ export default function App() {
   // LOGIN HANDLER
   const handleLogin = (emailInput, passwordInput) => {
     // Check Admin
-    if (emailInput === DEFAULT_ADMIN.email && passwordInput === DEFAULT_ADMIN.password) {
+    if (emailInput.toLowerCase() === DEFAULT_ADMIN.email.toLowerCase() && passwordInput === DEFAULT_ADMIN.password) {
       const adminObj = DEFAULT_ADMIN;
       setCurrentUser(adminObj);
       return { success: true };
@@ -117,7 +116,6 @@ export default function App() {
     // Check Approved Users
     const foundUser = approvedUsers.find(u => u.email.toLowerCase() === emailInput.toLowerCase());
     if (!foundUser) {
-      // Check if pending
       const isPending = pendingUsers.some(u => u.email.toLowerCase() === emailInput.toLowerCase());
       if (isPending) {
         return { success: false, message: 'Tài khoản của bạn đang chờ Admin phê duyệt. Vui lòng kiểm tra lại sau!' };
@@ -154,7 +152,6 @@ export default function App() {
       return { success: false, message: 'Mật khẩu hiện tại không đúng.' };
     }
 
-    // Update in approvedUsers
     setApprovedUsers(prev => prev.map(u => {
       if (u.email === currentUser.email) {
         return { ...u, password: newPass };
@@ -162,7 +159,6 @@ export default function App() {
       return u;
     }));
 
-    // Update current user
     setCurrentUser(prev => ({ ...prev, password: newPass }));
     return { success: true };
   };
@@ -240,7 +236,7 @@ export default function App() {
       const count = savedMastered ? JSON.parse(savedMastered).length : 0;
       allStudentsProgress[u.email] = {
         masteredCount: count,
-        shadowingAvgScore: Math.floor(82 + Math.random() * 15), // Mock average score
+        shadowingAvgScore: Math.floor(82 + Math.random() * 15),
         grammarCount: Math.floor(Math.random() * 8),
         articlesCount: Math.floor(Math.random() * 5)
       };
@@ -258,7 +254,7 @@ export default function App() {
         totalItems={hsk4Data.length}
         masteredCount={masteredSet.size}
         currentUser={currentUser}
-        onOpenAuthModal={() => { setAuthModalMode('login'); setAuthModalOpen(true); }}
+        onOpenAuthModal={(mode = 'login') => { setAuthModalMode(mode); setAuthModalOpen(true); }}
         onOpenChangePass={() => { setAuthModalMode('change_password'); setAuthModalOpen(true); }}
         onLogout={handleLogout}
       />
