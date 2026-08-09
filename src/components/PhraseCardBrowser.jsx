@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Volume2, Mic, Filter, CheckCircle2 } from './Icons';
-
+import { getPosInfo } from '../utils/posUtils';
 
 export default function PhraseCardBrowser({ data, onSelectForShadowing, masteredSet, onMasterToggle }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -83,25 +83,28 @@ export default function PhraseCardBrowser({ data, onSelectForShadowing, mastered
 
         {/* Filter Pills */}
         <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.5rem' }}>
-          {posList.map((pos) => (
-            <button
-              key={pos}
-              onClick={() => setSelectedPos(pos)}
-              style={{
-                background: selectedPos === pos ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.6)',
-                color: selectedPos === pos ? '#ffffff' : '#94a3b8',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                padding: '0.4rem 0.9rem',
-                borderRadius: '20px',
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                fontWeight: selectedPos === pos ? 600 : 400
-              }}
-            >
-              {pos === 'ALL' ? 'Tất cả từ loại' : pos}
-            </button>
-          ))}
+          {posList.map((pos) => {
+            const pInfo = pos === 'ALL' ? null : getPosInfo(pos);
+            return (
+              <button
+                key={pos}
+                onClick={() => setSelectedPos(pos)}
+                style={{
+                  background: selectedPos === pos ? 'var(--accent-primary)' : 'rgba(30, 41, 59, 0.6)',
+                  color: selectedPos === pos ? '#ffffff' : '#94a3b8',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  padding: '0.4rem 0.9rem',
+                  borderRadius: '20px',
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  fontWeight: selectedPos === pos ? 600 : 400
+                }}
+              >
+                {pos === 'ALL' ? '🌐 Tất cả loại từ' : `${pInfo.icon} ${pInfo.label} (${pos})`}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -113,6 +116,7 @@ export default function PhraseCardBrowser({ data, onSelectForShadowing, mastered
       }}>
         {filteredData.map((item) => {
           const isMastered = masteredSet.has(item.id);
+          const posInfo = getPosInfo(item.pos);
           return (
             <div
               key={item.id}
@@ -130,14 +134,23 @@ export default function PhraseCardBrowser({ data, onSelectForShadowing, mastered
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <span style={{ fontSize: '0.75rem', color: '#818cf8', fontWeight: 600 }}>#{item.id}</span>
-                    <span style={{
-                      background: 'rgba(255, 255, 255, 0.08)',
-                      padding: '0.2rem 0.5rem',
-                      borderRadius: '6px',
-                      fontSize: '0.75rem',
-                      color: '#94a3b8'
-                    }}>
-                      {item.pos}
+                    <span
+                      title={posInfo.note}
+                      style={{
+                        background: posInfo.bg,
+                        color: posInfo.color,
+                        border: `1px solid ${posInfo.border}`,
+                        padding: '0.15rem 0.6rem',
+                        borderRadius: '12px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.2rem'
+                      }}
+                    >
+                      <span>{posInfo.icon}</span>
+                      <span>{posInfo.label}</span>
                     </span>
                   </div>
 

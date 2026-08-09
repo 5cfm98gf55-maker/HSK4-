@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, Play, CheckCircle2, Mic, AlertCircle, RefreshCw, ChevronLeft, ChevronRight, Settings } from './Icons';
 import { evaluateSpeech } from '../utils/phoneticsEvaluator';
+import { getPosInfo } from '../utils/posUtils';
 
 export default function ShadowingLab({
   allData,
@@ -402,35 +403,75 @@ export default function ShadowingLab({
           <span>{isMastered ? 'Đã làm chủ (Sổ từ)' : 'Đánh dấu đã thuộc'}</span>
         </button>
 
-        {/* Flashcard Index Header */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-          <span style={{
-            background: 'rgba(168, 85, 247, 0.2)',
-            color: '#c084fc',
-            padding: '0.2rem 0.75rem',
-            borderRadius: '12px',
-            fontSize: '0.85rem',
-            fontWeight: 700
-          }}>
-            #{safeIndex + 1} / {currentDataset.length}
-          </span>
-          <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
-            ({currentItem ? currentItem.pos : ''})
-          </span>
-        </div>
+        {/* Flashcard Index Header & Word Type Badge */}
+        {(() => {
+          const posInfo = getPosInfo(currentItem?.pos);
+          return (
+            <>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+                <span style={{
+                  background: 'rgba(168, 85, 247, 0.2)',
+                  color: '#c084fc',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '12px',
+                  fontSize: '0.85rem',
+                  fontWeight: 700
+                }}>
+                  #{safeIndex + 1} / {currentDataset.length}
+                </span>
 
-        {/* Main Chinese Phrase & Pinyin */}
-        <div style={{ marginBottom: '2rem' }}>
-          <h1 className="zh-text zh-hero-text" style={{ fontSize: '3.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', letterSpacing: '0.02em' }}>
-            {currentItem ? currentItem.word : ''}
-          </h1>
-          <div style={{ fontSize: '1.5rem', color: '#c084fc', fontWeight: 600, marginBottom: '0.5rem' }}>
-            {currentItem ? currentItem.pinyin : ''}
-          </div>
-          <div style={{ fontSize: '1.25rem', color: '#f8fafc', fontWeight: 500 }}>
-            {currentItem ? currentItem.meaning : ''}
-          </div>
-        </div>
+                {/* Styled POS Badge */}
+                <span style={{
+                  background: posInfo.bg,
+                  color: posInfo.color,
+                  border: `1px solid ${posInfo.border}`,
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '20px',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem'
+                }}>
+                  <span>{posInfo.icon}</span>
+                  <span>{posInfo.label} ({posInfo.en})</span>
+                </span>
+              </div>
+
+              {/* Main Chinese Phrase & Pinyin */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <h1 className="zh-text zh-hero-text" style={{ fontSize: '3.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', letterSpacing: '0.02em' }}>
+                  {currentItem ? currentItem.word : ''}
+                </h1>
+                <div style={{ fontSize: '1.5rem', color: '#c084fc', fontWeight: 600, marginBottom: '0.5rem' }}>
+                  {currentItem ? currentItem.pinyin : ''}
+                </div>
+                <div style={{ fontSize: '1.25rem', color: '#f8fafc', fontWeight: 600 }}>
+                  {currentItem ? currentItem.meaning : ''}
+                </div>
+              </div>
+
+              {/* Grammar & POS Annotation Note Box */}
+              <div style={{
+                background: 'rgba(30, 41, 59, 0.7)',
+                border: `1px solid ${posInfo.border}`,
+                borderRadius: '12px',
+                padding: '0.75rem 1rem',
+                margin: '0 auto 1.8rem auto',
+                maxWidth: '680px',
+                textAlign: 'left',
+                fontSize: '0.82rem',
+                color: '#cbd5e1',
+                lineHeight: '1.5'
+              }}>
+                <strong style={{ color: posInfo.color, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                  {posInfo.icon} Chú thích Loại từ [{posInfo.label} • {posInfo.en}]:
+                </strong>{' '}
+                <span>{posInfo.note}</span>
+              </div>
+            </>
+          );
+        })()}
 
         {/* Word Audio Button */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
